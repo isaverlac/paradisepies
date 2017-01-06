@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+	<meta charset="utf-8">
+	<title>Paradise Pies</title>
+	
+	<link rel="shortcut icon" href="Imagens/favicon.png">
+	<link rel="stylesheet" media="screen" href="style.css?v=8may2013">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Isabela Andrade">
+	<meta name="robots" content="all">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links
+	  $("a").on('click', function(event) {
+
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+		  // Prevent default anchor click behavior
+		  event.preventDefault();
+
+		  // Store hash
+		  var hash = this.hash;
+
+		  // Using jQuery's animate() method to add smooth page scroll
+		  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		  $('html, body').animate({
+			scrollTop: $(hash).offset().top
+		  }, 800, function(){
+	   
+			// Add hash (#) to URL when done scrolling (default click behavior)
+			window.location.hash = hash;
+		  });
+		} // End if
+	  });
+	});
+	</script>
+	
+	
+	<script>
+	function msg() {
+		alert("Encomenda Realizada!");
+	}
+	</script>
+	
+	
+	<script>
+			$(document).ready(function() {
+  
+			  $(window).scroll(function () {
+				  //if you hard code, then use console
+				  //.log to determine when you want the 
+				  //nav bar to stick.  
+				  console.log($(window).scrollTop())
+				if ($(window).scrollTop() > 210) {
+				  $('nav').addClass('navbar-fixed');
+				}
+				if ($(window).scrollTop() < 211) {
+				  $('nav').removeClass('navbar-fixed');
+				}
+			  });
+			});
+	</script>
+
+</head>
+
+<body>
+
+<span id="inicio"> </span>
+
+<header></header>
+
+<div id="sticky-anchor"></div>
+<nav>
+	<a href="#inicio"> Início </a>
+	<a href="#sobre"> Sobre a Loja </a>
+	<a href="#cardapio"> Cardápio </a>
+	<a href="#encomende"> Encomende </a>
+	<a href="#contato"> Contato </a>
+	<a href="login.html"> Acesse </a>
+</nav>
+
+
+<div class="caixas">
+
+	<div class="informacoes">
+		<a id="sobre"><h1>Seja bem-vindo à Paradise Pies!</h1></a>
+		
+		Aqui, produzimos tortas com muito carinho e com os melhores ingredientes para alegrar o seu dia. <br><br>
+
+		Está sem tempo para fazer a sobremesa do almoço em família? Encomende nossas tortas! 
+
+		Veja o nosso cardápio para encontrar sabores e valores.
+
+	</div>
+	
+	<div class="cardapio">
+			<a id="cardapio"><h1>Nosso Cardápio</h1></a>
+			
+			<div class="opcao">
+				<img src="Tortas/t1.jpg" alt="Torta"/>
+				<h2>#01 - Torta de Brigadeiro Preto e Morangos</h2>
+				
+				<h3>Pequena: R$00,00</h3>
+				<h3>Média: R$00,00</h3>
+				<h3>Grande: R$00,00</h3>
+				
+				<div class="info">Torta com base amanteigada e crocante de biscoito tipo maisena, recheio de brigadeiro tradicional com pedacinhos de morangos frescos, decorada com mais morangos.</div>
+								
+				<a href="#encomende"> Encomende essa torta! </a>
+				
+			</div>
+			
+			<div class="opcao">
+				<img src="Tortas/t2.jpg" alt="Torta"/>
+				<h2>#02 - Torta de Brigadeiro de Leite Ninho</h2>
+				
+				<h3>Pequena: R$00,00</h3>
+				<h3>Média: R$00,00</h3>
+				<h3>Grande: R$00,00</h3>
+				
+				<div class="info">Torta com base amanteigada e crocante de biscoito tipo maisena, recheio de brigadeiro de leite ninho, decorada com raspas de chocolate ao leite e bombons Sonho de Valsa.</div>
+								
+				<a href="#encomende"> Encomende essa torta! </a>
+				
+			</div>
+			
+			<div class="opcao">
+				<img src="Tortas/t3.jpg" alt="Torta"/>
+				<h2>#03 - Torta de Brigadeiro Preto e Branco</h2>
+				
+				<h3>Pequena: R$00,00</h3>
+				<h3>Média: R$00,00</h3>
+				<h3>Grande: R$00,00</h3>
+				
+				<div class="info">Torta com base amanteigada e crocante de biscoito tipo maisena, recheio de brigadeiro tradicional e brigadeiro branco, decorada com pedaços de bombom Ouro Branco.</div>
+								
+				<a href="#encomende"> Encomende essa torta! </a>
+				
+			</div>
+			
+	</div>
+
+	<div class="encomende">
+		<a id="encomende"><h1>Encomende!</h1></a>
+		
+		<div class="e">
+		
+			Você quer encomendar uma torta? Preencha o formulário abaixo e seu pedido será feito! Você receberá, no seu e-mail, um link para pagamento. 
+			Quando o seu pagamento for confirmado, você receberá um recibo.
+			
+			<h2>Formas de Pagamento</h2>
+			
+			<img src="Pagamentos/boleto.png" title="Boleto Bancário" alt="Boleto Bancário"/>
+			<img src="Pagamentos/visa.png" title="Cartão de Crédito Visa" alt="Cartão de Crédito Visa"/>
+			<img src="Pagamentos/mastercard.png" title="Cartão de Crédito Mastercard" alt="Cartão de Crédito Mastercard"/>
+			<img src="Pagamentos/elo.png" title="Cartão de Crédito Elo" alt="Cartão de Crédito Elo"/>
+			<img src="Pagamentos/paypal.png" title="Paypal" alt="Paypal"/>
+			<img src="Pagamentos/pagseguro.png" title="PagSeguro" alt="PagSeguro"/>
+			<img src="Pagamentos/bancodobrasil.png" title="Transferência Bancária" alt="Transferência Bancária" />
+			
+		</div>
+		
+		<form>
+		
+			<h2>Preencha suas informações pessoais</h2>
+  
+			<label for="nome">Nome Completo:</label> 
+			<input type="text" maxlength="150" id="nome" required placeholder="Firstname Middlename Lastname"> 
+			
+			<br><br>
+			
+			<label for="cpf">CPF:</label>
+			<input type="text" maxlength="14" id="cpf" required placeholder="999.999.999-99" pattern="([0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2})">
+			
+			<br><br>
+			
+			<label for="tel">Telefone:</label>
+			<input type="tel" id="tel" required placeholder="(99) 9999-9999" pattern="[(]?[0]?[0-9]{2}[)]?[ ]?[0-9]{4,5}[ -.]?[0-9]{4}">
+			
+			<br><br>
+			
+			<label for="city">Cidade:</label>
+			<select id="city">
+			  <option value="selecione">Selecione</option>
+			  <option value="cg">Campo Grande</option>
+			</select>
+			
+			<br><br>
+			
+			<label for="cep">CEP:</label>
+			<input type="text" id="cep" required placeholder="99999-999" pattern="[0-9]{2}[.]?[0-9]{3}-?[0-9]{3}">
+			
+			<br><br>
+			
+			
+			<label for="end">Endereço:</label>
+			<input type="text" id="end" maxlength="250" required placeholder="Rua Name">
+			
+			<br><br>
+			
+			<label for="n">Número:</label>
+			<input type="number" id="n" required placeholder="999">
+			
+			<br><br>
+			
+			<label for="comp">Complemento:</label>
+			<input type="text" id="comp" placeholder="Bloco 9, AP 9">
+			
+			<br><br>
+			
+			<label for="email">Email:</label>
+			<input type="email" id="email" placeholder="name@name.com.br">
+			
+			<h2>Preencha seu pedido</h2>
+			
+			<label for="torta">Torta:</label>
+			<select id="torta">
+			  <option value="torta">Selecione</option>
+			  <option value="t1">#01 - Torta de Brigadeiro Preto e Morangos</option>
+			  <option value="t1">#02 - Torta de Brigadeiro de Leite Ninho</option>
+			  <option value="t1">#03 - Torta de Brigadeiro Preto e Branco</option>
+			</select>
+			
+			<br><br>
+			
+			<label for="tamanho">Tamanho:</label>
+			<select id="tamanho">
+			  <option value="tam">Selecione</option>
+			  <option value="p">Pequena</option>
+			  <option value="m">Média</option>
+			  <option value="g">Grande</option>
+			</select>
+			
+			<br><br>
+			
+			<label for="entrega">Entrega:</label>
+			<select id="entrega">
+			  <option value="local">Retirar no Local</option>
+			  <option value="taxa">Entregar no Endereço Citado</option>
+			</select>
+		   
+		   <br><br>
+		   
+			<button type="submit" value="Encomendar" onclick="msg()">Encomendar</button>
+		   
+			<button type="reset">Resetar</button>
+		  
+		</form>
+			
+	</div>
+
+	<div class="contato">
+		<a id="contato"><h1>Entre em Contato</h1></a>
+		
+		<label for="name">Nome Completo:</label> 
+			<input type="text" maxlength="150" id="name" required placeholder="Firstname Middlename Lastname">
+			
+			<br><br>
+			
+		<label for="tele">Telefone:</label>
+			<input type="tel" id="tele" placeholder="(99) 9999-9999" pattern="[(]?[0]?[0-9]{2}[)]?[ ]?[0-9]{4,5}[ -.]?[0-9]{4}">
+		
+			<br><br>
+			
+			<label for="msg">Mensagem:</label> <br>
+				<textarea id="msg" rows="4" cols="82" placeholder="Digite sua mensagem">
+					
+				</textarea>
+				
+				<br><br>
+				
+				<button type="submit" value="Enviar">Enviar</button>
+			
+	</div>
+	
+	<footer>
+	
+			<div class="rs">
+				<h2>Onde nos encontrar</h2>
+
+			
+					<a href="https://www.facebook.com/paradisepie/"> <img src="Social/facebook.png" alt="facebook"/> curta nossa página </a>
+					<a href="https://www.instagram.com/paradise.pies/"> <img src="Social/instagram.png" alt="instagram"/> nos siga no instagram  </a>
+					
+					<br>
+					 
+					 <img src="Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS 
+					 
+					 <br>
+					 
+					 <img src="Social/email.png" alt="Email"/> paradisepies@gmail.com 
+			
+				
+			</div>
+			
+			<div class="me">
+			
+			<h2>Sobre Mim</h2>
+			
+			<img src="Imagens/me.jpg" class="portrait" alt="Sobre Mim"/> Meu nome é Isabela, tenho 20 anos. <br> 
+			Sou apaixonada por doces e por web design. <br>
+			Faço ambos com muito carinho ♥. <br>
+			
+			<a href="https://www.facebook.com/isaverlac/"><img src="Social/facebook.png" alt="facebook"/></a>
+			<a href="https://twitter.com/isaverlac"><img src="Social/instagram.png" alt="instagram"/></a>
+			<a href="https://www.instagram.com/isaverlac/"><img src="Social/twitter.png" alt="twitter"/></a>
+			<a href="https://city0fglass.tumblr.com"><img src="Social/tumblr.png" alt="tumblr"/></a>
+			
+			</div>
+	
+		<div class="disclaimer">
+			Layout inteiramente desenvolvido por Isabela Andrade Souza. Todos os direitos reservados. <br>
+		Plágio é crime de acordo com a Lei Federal dos direitos autorais n°9610.
+		</div>
+		
+	</footer>
+</div>
+
+</body>
+</html>

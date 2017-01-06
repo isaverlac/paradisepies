@@ -1,0 +1,448 @@
+body {
+	color:#696969;
+	font-family:calibri;
+	font-family: 'Open Sans Condensed', sans-serif;
+	background:#fff;
+}
+
+/*** SCROLLBAR ***/
+
+	::-webkit-scrollbar {width:10px; height:10px; overflow-x: hidden }
+    ::-webkit-scrollbar-thumb:vertical {height:10px; background-color:#FFCBC6; opacity:.5; } 
+    ::-webkit-scrollbar-thumb:horizontal {overflow-x: hidden }
+	
+/* LINKS EM GERAL */
+	
+a {
+text-decoration:none;
+transition:0.5s ease-in; 
+-moz-transition:0.5s ease-in; 
+-webkit-transition:0.3s ease-in; 
+
+}	
+
+/* HEADLINGS */
+
+h1 {
+	color:#FFA99F;
+	font-family: 'Sacramento', cursive;
+	margin-top:50px;
+}
+
+h2 {	
+	color:#696969;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;
+	}
+	
+h3 {
+	color:#FFA99F;
+	font-family: 'Open Sans Condensed', sans-serif;
+}	
+
+/* BOTOES */
+
+button {
+	width:200px;
+	text-align:center;
+	background-color:#ffa99f;
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border-radius:42px;
+	border:none;
+	border-top:1px #d5d5d5 solid;
+	border-bottom:2px #b5b5b5 solid;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	padding:5px 35px;
+	text-decoration:none;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;	
+}
+	button:hover {
+		opacity:.5;
+	}
+
+	button a {
+		color:#fff;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size:20px;	
+	}
+	
+	
+
+/* HEADER */
+
+header {
+	width:100%;
+	height:200px;
+	position:absolute;
+	padding:5px;
+	left:0;
+	top:0;
+	background:#FFA99F;
+	background-image: url('Imagens/PPlogo.png');
+	background-position: top center;
+	background-repeat:no-repeat;
+	background-size:200px 200px;	
+}
+
+
+/* MENU */
+
+nav {
+	width:100%;
+	height:auto;
+	top:210px;
+	position:absolute;
+	padding:5px;
+	left:0;
+	z-index:5;
+	background:#e8e8e8;
+	text-align:center;
+	margin:auto;
+}
+
+.navbar-fixed {
+    top: 0;
+    z-index: 100;
+	position: fixed;
+    width: 100%;
+}
+
+
+	nav a {
+		color:#FFA99F;
+		text-transform:uppercase;
+		text-align:center;
+		width:auto;	
+		margin: 0 30px 0 30px;
+		padding:5px;
+		font-weight:bold;
+	}
+	
+	nav a:hover {
+		color:#696969;
+	}
+
+/* CAIXAS */
+
+.caixas {
+	position:absolute;
+	top:238px;
+	left:0;
+	width:100%;
+}
+
+.caixa {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:15px;
+	margin:5px;
+	left:0;
+	background:#f1f1f1;
+	text-align:center;
+	margin:auto;
+}
+
+.caixa a {
+	color:#FFA99F;
+}
+
+.caixa a:hover {
+	color:#696969;
+}
+
+.caixawhite {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:15px;
+	margin:5px;
+	left:0;
+	background:#ffffff;
+	text-align:center;
+	margin:auto;
+
+}
+
+/** INFOS **/
+
+.informacoes {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:5px 5px 50px 5px;
+	left:0;
+	background:#f1f1f1;
+	text-align:center;
+	margin:auto;
+}
+
+/* CARDAPIO */
+
+.cardapio {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:5px;
+	margin:5px;
+	left:0;
+	background:#fff;
+	text-align:center;
+	margin:auto;
+}
+
+.opcao {
+	margin:50px;
+	width:200px;
+	position:relative;
+	display:inline-block;
+}
+
+.opcao a {
+	width:200px;
+	text-align:center;
+	background-color:#ffa99f;
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border-radius:42px;
+	border:none;
+	border-top:1px #d5d5d5 solid;
+	border-bottom:2px #b5b5b5 solid;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	padding:5px;
+	text-decoration:none;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;	
+}
+	.opcao a:hover {
+		opacity:.5;
+	}
+
+
+	.opcao h3 {
+	width:200px;
+	padding:5px;
+	margin: 2px 0px 2px 0px;
+	background:#f1f1f1;
+	font-size:15px;
+	}
+
+	.opcao img {
+		border-radius:100%;
+		width:200px;
+		height:200px;
+		transition:0.5s ease-in; 
+		-moz-transition:0.5s ease-in; 
+		-webkit-transition:0.3s ease-in; 
+		
+	}
+	
+	.opcao img:hover {
+		 -webkit-filter: grayscale(100%); 
+		 filter: grayscale(100%);
+	}
+	
+	.info {
+		width:200px;
+		height:80px;
+		overflow:auto;
+		padding:5px;
+		background:#f1f1f1;
+		margin-bottom: 15px;
+	}
+	
+	
+/* ENCOMENDE */
+
+.encomende {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:15px;
+	margin:5px;
+	left:0;
+	background:#f1f1f1;
+	text-align:center;
+	margin:auto;
+
+}
+
+.encomende h2 {
+	color:#FFA99F;
+}
+
+.e {
+	width: 40%;
+	height:auto;
+	margin:auto auto 15px auto;
+	background:#FFA99F;
+	padding:15px;
+	color:#ffffff;
+}
+
+.e h2 {
+	color:#ffffff;
+}
+
+.e img {
+	width:auto;
+	height:auto;
+}
+label {
+	width:200px;
+	text-align:center;
+	display: inline-block;
+	color:#696969;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;
+}
+
+input {
+	margin-left:10px;
+	width:300px;
+}
+
+
+select {
+	margin-left:10px;
+	width:300px;
+	color:#B3A9A9;
+}
+
+option {
+	color:#B3A9A9;
+}
+
+textarea {
+	color:#B3A9A9;
+	font-family:calibri;
+}
+
+/** PARA CENTRALIZAR O LABEL DO TEXTAREA **/
+
+.aligntext * {
+  vertical-align: middle;
+}
+
+/** TAMANHO DO INPUT DOS PRECOS DAS TORTAS **/
+
+.preco input {
+	width:140px;
+}
+
+
+/** CONTATO **/
+
+.contato {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:5px;
+	margin:5px;
+	left:0;
+	background:#fff;
+	text-align:center;
+	margin:auto;
+}
+
+/* FOOTER */
+
+footer {
+	width:100%;
+	height:auto;
+	position:absolute;
+	padding:5px;
+	left:0;
+	background:#FFA99F;
+	color:#ffffff;
+	padding:5px;
+	text-align:center;
+	margin-top:10px;
+	padding-bottom:50px;
+}
+
+
+footer h2 {
+	color:#ffffff;
+	text-align:center;
+	
+}
+
+/** SOBRE MIM **/
+
+
+.me {
+	margin-right:25%;
+	width:400px;
+	height:auto;
+	float:right;
+	text-align:justify;
+	padding:10px;
+}
+
+.me img.portrait {
+	width:100px;
+	height:auto;
+	border-radius:100%;
+	float:left;
+	padding-right:10px;
+	margin-top:-10px;
+}
+
+.me img {
+	width:40px;
+	margin:5px;
+}
+
+/** REDES SOCIAIS **/
+
+
+.rs{
+	margin-left:25%;
+	width:400px;
+	height:auto;
+	float:left;
+	text-align:center;
+	color:#fff;	
+	padding:10px;
+}
+
+.rs a {
+	color:#fff;
+	
+}
+
+.rs img {
+	width:40px;
+	height:auto;
+	vertical-align:middle;
+	margin:1px;
+}
+
+/** CREDITOS **/
+
+.disclaimer {
+	text-align:center;
+	width:100%;
+	height:auto;
+	background:#ff9a8e;
+	color:#ffffff;
+	position:absolute;
+	bottom:0;
+}
+
+
+
+/* SELECAO COLORIDA  */
+
+::selection {
+	color:#ffffff; 
+	background:#FFA99F
+	}; 
+
