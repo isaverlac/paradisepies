@@ -18,6 +18,7 @@ text-decoration:none;
 transition:0.5s ease-in; 
 -moz-transition:0.5s ease-in; 
 -webkit-transition:0.3s ease-in; 
+color:#ffa99f;
 
 }	
 
@@ -33,6 +34,7 @@ h2 {
 	color:#696969;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size:20px;
+	text-align:center;
 	}
 	
 h3 {
@@ -42,7 +44,7 @@ h3 {
 
 /* BOTOES */
 
-button {
+button, .botao a {
 	width:200px;
 	text-align:center;
 	background-color:#ffa99f;
@@ -128,71 +130,59 @@ nav {
 
 /* CAIXAS */
 
-.caixas {
-	position:absolute;
-	top:238px;
-	left:0;
-	width:100%;
-}
-
 .caixa {
-	width:100%;
-	height:auto;
-	position:relative;
-	padding:15px;
-	margin:5px;
-	left:0;
-	background:#f1f1f1;
-	text-align:center;
-	margin:auto;
-}
-
-.caixa a {
-	color:#FFA99F;
-}
-
-.caixa a:hover {
-	color:#696969;
-}
-
-.caixawhite {
-	width:100%;
-	height:auto;
-	position:relative;
-	padding:15px;
-	margin:5px;
-	left:0;
-	background:#ffffff;
-	text-align:center;
-	margin:auto;
-
-}
-
-/** INFOS **/
-
-.informacoes {
 	width:100%;
 	height:auto;
 	position:relative;
 	padding:5px 5px 50px 5px;
 	left:0;
+	top:233px;
 	background:#f1f1f1;
 	text-align:center;
 	margin:auto;
 }
 
+.caixa:nth-child(even) {
+	background:#fff;
+}
+
 /* CARDAPIO */
 
-.cardapio {
-	width:100%;
-	height:auto;
-	position:relative;
-	padding:5px;
-	margin:5px;
-	left:0;
-	background:#fff;
-	text-align:center;
-	margin:auto;
+
+/** CODIGO POPUP TTHY**/
+
+#fade {
+	display: none; 
+	background: #000; 
+	position: fixed; left: 0; 
+	top: 0; 
+	width: 100%; 
+	height: 100%; 
+	opacity: .80; 
+	z-index: 9999;
+}
+.popup_block{
+	display: none;
+	background: #fff; 
+	padding: 10px; 
+	float: left; 
+	position: fixed; 
+	top: 50%; 
+	left: 50%; 
+	z-index: 99999;
+
+}
+img.btn_close {
+	float: right; 
+
+	width:25px;
+	height:25px;
+}
+*html #fade {
+	position: absolute;
+}
+*html .popup_block {
+	position: absolute;
 }
 
 .opcao {
@@ -202,36 +192,41 @@ nav {
 	display:inline-block;
 }
 
-.opcao a {
-	width:200px;
-	text-align:center;
-	background-color:#ffa99f;
-	-moz-border-radius:42px;
-	-webkit-border-radius:42px;
-	border-radius:42px;
-	border:none;
-	border-top:1px #d5d5d5 solid;
-	border-bottom:2px #b5b5b5 solid;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	padding:5px;
-	text-decoration:none;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size:20px;	
-}
-	.opcao a:hover {
-		opacity:.5;
-	}
-
-
-	.opcao h3 {
-	width:200px;
-	padding:5px;
-	margin: 2px 0px 2px 0px;
+.cardapio a {
+	border-radius:100%;
+	opacity:0;
 	background:#f1f1f1;
+	text-transform:uppercase;
+	font-weight:bold;
+	width:200px;
+	height:200px;
+	padding:5px;
+	line-height:200px;
+	display:inline-block;
+	margin-top: -207px;
+    margin-left: -105px;
+	position:absolute;
+	transition:0.5s ease-in; 
+	-moz-transition:0.5s ease-in; 
+	-webkit-transition:0.3s ease-in; 
+}
+
+.cardapio a:hover {
+	opacity:1;
+}
+
+	.opc {
+	width:30%;
+	padding:5px;
+	margin: 2px;
+	background:#FFA99F;
+	color:#fff;
+	text-align:center;
+	font-weight:bold;
 	font-size:15px;
+	display:inline-block;
 	}
+	
 
 	.opcao img {
 		border-radius:100%;
@@ -240,7 +235,6 @@ nav {
 		transition:0.5s ease-in; 
 		-moz-transition:0.5s ease-in; 
 		-webkit-transition:0.3s ease-in; 
-		
 	}
 	
 	.opcao img:hover {
@@ -249,29 +243,25 @@ nav {
 	}
 	
 	.info {
-		width:200px;
-		height:80px;
+		width:98%;
+		max-height:80px;
+		margin-top:15px;
 		overflow:auto;
 		padding:5px;
 		background:#f1f1f1;
-		margin-bottom: 15px;
+		
 	}
 	
 	
-/* ENCOMENDE */
-
-.encomende {
-	width:100%;
-	height:auto;
-	position:relative;
-	padding:15px;
-	margin:5px;
-	left:0;
-	background:#f1f1f1;
+	.opcao a {
+		color:#696969;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:20px;
 	text-align:center;
-	margin:auto;
-
-}
+	}
+	
+		
+/* ENCOMENDE */
 
 .encomende h2 {
 	color:#FFA99F;
@@ -308,6 +298,11 @@ input {
 	width:300px;
 }
 
+input[type="radio"] {
+	margin-left:10px;
+	width:10px;
+}
+
 
 select {
 	margin-left:10px;
@@ -336,20 +331,60 @@ textarea {
 	width:140px;
 }
 
+/** TABELAS **/
 
-/** CONTATO **/
+table {
+ border-collapse: collapse;
+margin:auto;
+} 
 
-.contato {
-	width:100%;
-	height:auto;
-	position:relative;
-	padding:5px;
-	margin:5px;
-	left:0;
-	background:#fff;
-	text-align:center;
-	margin:auto;
+th, td, tr {
+
+ width:auto;
+ padding: 5px 15px 5px 15px;
+} 
+
+
+td img {
+	width:100px;
+	border-radius:100%;
 }
+
+td img.close{
+	width:25px;
+	height:25px;
+}
+
+th {
+  background:#FFA99F;
+  color:#fff;
+  text-align:center;
+} 
+
+tr:nth-child(even) {
+    background-color: #e8e8e8;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+
+/** CARRINHO DE COMPRAS **/
+
+.carrinho {
+	background:red;
+	width:350px;
+	position:relative;
+}
+
+.carrinho img {
+	width:100px;
+	height:100px;
+	border-radius:100%;
+	float:left;
+}
+
 
 /* FOOTER */
 
@@ -363,7 +398,7 @@ footer {
 	color:#ffffff;
 	padding:5px;
 	text-align:center;
-	margin-top:10px;
+	margin-top:200px;
 	padding-bottom:50px;
 }
 
