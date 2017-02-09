@@ -79,7 +79,8 @@
 
 <div id="sticky-anchor"></div>
 <nav>
-	<a href="acesso.html"> Voltar ao Início </a>
+	<a href="acesso.html"> Início </a>
+	<a href="carrinhoDeCompras.html"> Voltar ao Carrinho</a>
 
 </nav>
 
@@ -87,55 +88,32 @@
 
 	<div class="caixa">
 		
-			<h1>Carrinho de Compras</h1>
+			<h1>Finalize seu Pedido</h1>
 			
-			<table> 
-     
-			<tr>
-			  <th>Imagem</th>
-			  <th>Pedido</th>
-			  <th>Tamanho</th>
-			  <th>Quantidade</th>
-			  <th>Preço Individual</th>
-			  <th>Preço Total</th>
-			  <th>Remover</th>
-			</tr>
+			<form>
 			
-			<tr>
-			  <td><img src="Tortas/t2.jpg" alt="Torta"/></td>
-			  <td>#02 - Torta de Brigadeiro de Leite Ninho</td>
-			  <td>Pequena</td>
-			  <td>01</td>
-			  <td>R$30,00</td>
-			  <td>R$30,00</td>
-			  <td><a href="#"><img src="Imagens/close.png" class="close"/></a></td>
-			</tr>
+			<label for="senha">Modo de Pagamento:</label> 
+			<select id="pagamento">
+			  <option value="pagamento">Selecione</option>
+			  <option value="1">Boleto Bancário</option>
+			  <option value="2">Cartão de Crédito Visa</option>
+			  <option value="3">Cartão de Crédito Mastercard</option>
+			  <option value="4">Cartão de Crédito Elo</option>
+			  <option value="5">PayPal</option>
+			  <option value="6">PagSeguro</option>
+			  <option value="7">Transferência Bancária</option>
+			</select>
 			
-			<tr>
-			  <td><img src="Tortas/t1.jpg" alt="Torta"/></td>
-			  <td>#01 - Torta de Brigadeiro Preto e Morangos</td>
-			  <td>Pequena</td>
-			  <td>02</td>
-			  <td>R$30,00</td>
-			  <td>R$60,00</td>
-			  <td><a href="#"><img src="Imagens/close.png" class="close"/></a></td>
-			</tr>
-			
-			<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			 <th>Total:R$90,00</th>
-			 <th></th>
-			</tr>
-			
-			</table>
+			</form>
 			
 			<br>
 			
-			<div class="botao"><a href="finalizarPedido.html">Comprar Tudo</a> <a href="#">Limpar o Carrinho</a></div>
+			<label for="senha">Confirme sua senha:</label> 
+			<input type="password" id="senha" placeholder="password" required />
+			
+			<br><br>
+			
+			<div class="botao"><a href="#" onclick="msg()">Finalizar</a> <a href="carrinhoDeCompras.html">Cancelar</a></div>
 			
 			<br>
 		
