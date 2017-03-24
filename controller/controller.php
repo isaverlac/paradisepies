@@ -19,10 +19,6 @@ class Controller {
 				$this->perfil_usuario();
 				break;	
 			
-			case 'cadastro_torta':
-				$this->cadastro_torta();
-				break;
-
 			case 'acompanhar_pedido':
 				$this->acompanhar_pedido();
 				break;

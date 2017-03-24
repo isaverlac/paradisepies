@@ -3,24 +3,25 @@ class Usuario {
 
 	private $nome;
 	private $cpf;
-	private $tel;
+	private $telefone;
 	private $cidade;
 	private $cep;
 	private $end;
-	private $numero;
-	private $comp
+	private $numeroEndereco;
+	private $complementoEndereco;
 	private $email;
 	private $senha;
 
-	public function Usuario($nome, $cpf, $tel, $cidade, $cep, $end, $numero, $comp $email, $senha) {
+	public function Usuario($nome, $cpf, $telefone, $cidade, $cep, $end, $numEndereco, $complementoEndereco, $email, $senha(
+	{
 		$this->nome = $nome;
 		$this->cpf = $cpf;
-		$this->tel = $tel;
+		$this->telefone = $telefone;
 		$this->cidade = $cidade;
 		$this->cep = $cep;
 		$this->end = $end;
-		$this->numero = $numero;
-		$this->comp = $comp;
+		$this->numEndereco = $numeroEndereco;
+		$this->complementoEndereco = $complementoEndereco;
 		$this->email = $email;
 		$this->senha = $senha;
 
@@ -34,8 +35,8 @@ class Usuario {
 		return $this->cpf;
 	}
 
-	public function getTel() {
-		return $this->tel;
+	public function getTelefone() {
+		return $this->telefone;
 	}
 
 	public function getCidade() {
@@ -50,8 +51,12 @@ class Usuario {
 		return $this->end;
 	}
 	
-	public function getComp() {
-		return $this->comp;
+	public function getNumEndereco() {
+		return $this->numEndereco;
+	}
+
+	public function getComplemento() {
+		return $this->complementoEndereco;
 	}
 
 	public function getEmail() {
