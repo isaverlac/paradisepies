@@ -13,8 +13,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Isabela Andrade">
 	<meta name="robots" content="all">
+
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 	
 	<script>
 	$(document).ready(function(){
@@ -43,14 +45,6 @@
 	});
 	</script>
 	
-	
-	<script>
-	function msg() {
-		alert("Encomenda Realizada!");
-	}
-	</script>
-	
-	
 	<script>
 			$(document).ready(function() {
   
@@ -68,8 +62,8 @@
 			  });
 			});
 	</script>
-<script type="text/javascript"
-src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	
+
 
 <script>
 $(document).ready(function() {
@@ -111,6 +105,9 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 
 </script>
 
+	<script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -121,43 +118,24 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 
 <div id="sticky-anchor"></div>
 <nav>
-	<a href="acesso.html"> Início </a>
-	<a href="#sobre"> Sobre a Loja </a>
-	<a href="#cardapio"> Cardápio </a>
-	<a href="#encomende"> Encomende </a>
-	<a href="#contato"> Contato </a>
-	<a href="perfil.html"> Sua Conta </a>
+	<a href="cadastroUsuario.html"> Voltar </a>
 </nav>
 
 
 <div class="caixas">
 
-	
 	<div class="caixa">
-			<a id="cardapio"><h1>Sua Conta</h1></a>
-			
-			<div class="opcao">
-				<a href="cadastroUsuario.html"><img src="Imagens/perfil.png" alt="Perfil"/>
-				<br> Edite suas Informações</a>
-			</div>
-			
-			<div class="opcao">
-				<a href="encomende.html"><img src="Imagens/encomende.png" alt="Carrinho"/>
-				<br> Faça seu pedido</a>
-			</div>
-			
-			<div class="opcao">
-				<a href="carrinhoDeCompras.html"><img src="Imagens/carrinho.png" alt="Carrinho"/>
-				<br> Veja seu Carrinho de Compras</a>
-			</div>
-			
-			<div class="opcao">
-				<a href="acompanharPedido.html"><img src="Imagens/pedido.png" alt="Pedidos"/>
-				<br> Acompanhe seus Pedidos</a>
-			</div>
-			
+		
+		<?php
+	      if($sucesso)
+		echo $msg;
+	      else
+		echo 'ERRO'.$msg;
+	   ?>
+
 	</div>
 	
+
 	<footer>
 	
 			<div class="rs">
@@ -206,43 +184,6 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 		</div>
 		
 	</footer>
-</div>
-
-<div id="pop1" class="popup_block">
-
-<h2>#01 - Torta de Brigadeiro Preto e Morangos</h2>
-				
-	<div class="opc">Pequena: R$30,00</div>
-	<div class="opc">Média: R$40,00</div>
-	<div class="opc">Grande: R$50,00</div>
-				
-	<div class="info">Torta com base amanteigada e crocante de biscoito tipo maisena, recheio de brigadeiro tradicional com pedacinhos de morangos frescos, decorada com mais morangos.</div>
-								
-
-</div>
-
-<div id="pop2" class="popup_block">
-
-<h2>#02 - Torta de Brigadeiro de Leite Ninho</h2>
-				
-	<div class="opc">Pequena: R$30,00</div>
-	<div class="opc">Média: R$40,00</div>
-	<div class="opc">Grande: R$50,00</div>
-				
-	<div class="info">Torta com base amanteigada e crocante de biscoito tipo maisena, recheio de brigadeiro de leite ninho, decorada com raspas de chocolate ao leite e bombons Sonho de Valsa.</div>
-
-</div>
-
-<div id="pop3" class="popup_block">
-
-<h2>#03 - Torta de Brigadeiro Preto e Branco</h2>
-				
-	<div class="opc">Pequena: R$30,00</div>
-	<div class="opc">Média: R$40,00</div>
-	<div class="opc">Grande: R$50,00</div>
-				
-<div class="info">Torta com base amanteigada e crocante de biscoito tipo maisena, recheio de brigadeiro tradicional e brigadeiro branco, decorada com pedaços de bombom Ouro Branco.</div>
-
 </div>
 
 </body>

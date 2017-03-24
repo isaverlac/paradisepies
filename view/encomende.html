@@ -12,11 +12,9 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Isabela Andrade">
-	<meta name="robots" content="all">
-
+	<meta name="robots" content="all">	
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	
 	<script>
 	$(document).ready(function(){
@@ -45,6 +43,14 @@
 	});
 	</script>
 	
+	
+	<script>
+	function msg() {
+		alert("Encomenda Realizada!");
+	}
+	</script>
+	
+	
 	<script>
 			$(document).ready(function() {
   
@@ -62,77 +68,90 @@
 			  });
 			});
 	</script>
-	
-
-
-<script>
-$(document).ready(function() {
-
-	//script de pop up
-	//When you click on a link with class of poplight and the href starts with a # 
-$('a.poplight[href^=#]').click(function() {
-    var popID = $(this).attr('rel'); //Get Popup Name
-    var popURL = $(this).attr('href'); //Get Popup href to define size
-    //Pull Query & Variables from href URL
-    var query= popURL.split('?');
-    var dim= query[1].split('&');
-    var popWidth = dim[0].split('=')[1]; //Gets the first query string value
-    //Fade in the Popup and add close button
-    $('#' + popID).fadeIn().css({ 'width': Number( popWidth ) }).prepend('<a href="#" class="close"><img src="Imagens/close.png" class="btn_close" title="Close Window" alt="Close" /></a>');
-    //Define margin for center alignment (vertical   horizontal) - we add 80px to the height/width to accomodate for the padding  and border width defined in the css
-    var popMargTop = ($('#' + popID).height() + 80) / 2;
-    var popMargLeft = ($('#' + popID).width() + 80) / 2;
-    //Apply Margin to Popup
-    $('#' + popID).css({
-        'margin-top' : -popMargTop,
-        'margin-left' : -popMargLeft
-    });
-    //Fade in Background
-    $('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
-    $('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer - .css({'filter' : 'alpha(opacity=80)'}) is used to fix the IE Bug on fading transparencies 
-    return false;
-});
-
-//Close Popups and Fade Layer
-
-$('a.close, #fade').live('click', function() { //When clicking on the close or fade layer...
-    $('#fade , .popup_block').fadeOut(function() {
-        $('#fade, a.close').remove();  //fade them both out
-    });
-    return false;
-});
-});
-
-</script>
-
-	<script type="text/javascript"
-src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-
 </head>
 
 <body>
-
-<span id="inicio"> </span>
 
 <header></header>
 
 <div id="sticky-anchor"></div>
 <nav>
-	<a href="cadastroUsuario.html"> Voltar </a>
+	<a href="index.html"> Voltar ao Início </a>
+
 </nav>
 
 
 <div class="caixas">
 
 	<div class="caixa">
-		<a id="sobre"><h1>Ops! Algo deu errado!</h1></a>
-		 
-		Volte e tente novamente.
+		<h1>Encomende</h1>
+				
+		<div class="e">
 		
-		<br>
+			Você quer encomendar uma torta? Preencha o formulário abaixo e seu pedido será feito! Você receberá, no seu e-mail, um link para pagamento. 
+			Quando o seu pagamento for confirmado, você receberá um recibo.
+			
+			<h2>Formas de Pagamento</h2>
+			
+			<img src="Pagamentos/boleto.png" title="Boleto Bancário" alt="Boleto Bancário"/>
+			<img src="Pagamentos/visa.png" title="Cartão de Crédito Visa" alt="Cartão de Crédito Visa"/>
+			<img src="Pagamentos/mastercard.png" title="Cartão de Crédito Mastercard" alt="Cartão de Crédito Mastercard"/>
+			<img src="Pagamentos/elo.png" title="Cartão de Crédito Elo" alt="Cartão de Crédito Elo"/>
+			<img src="Pagamentos/paypal.png" title="Paypal" alt="Paypal"/>
+			<img src="Pagamentos/pagseguro.png" title="PagSeguro" alt="PagSeguro"/>
+			<img src="Pagamentos/bancodobrasil.png" title="Transferência Bancária" alt="Transferência Bancária" />
+			
+		</div>
+		
+		<form>
 
+			<h2>Preencha seu pedido</h2>
+			
+			<label for="torta">Torta:</label>
+			<select id="torta">
+			  <option value="torta">Selecione</option>
+			  <option value="t1">#01 - Torta de Brigadeiro Preto e Morangos</option>
+			  <option value="t1">#02 - Torta de Brigadeiro de Leite Ninho</option>
+			  <option value="t1">#03 - Torta de Brigadeiro Preto e Branco</option>
+			</select>
+			
+			<br><br>
+			
+			<label for="tamanho">Tamanho:</label>
+			<select id="tamanho">
+			  <option value="tam">Selecione</option>
+			  <option value="p">Pequena</option>
+			  <option value="m">Média</option>
+			  <option value="g">Grande</option>
+			</select>
+			
+			<br><br>
+			
+			<label for="quantidade">Quantidade:</label>
+			<select id="quantidade">
+			  <option value="01">01</option>
+			  <option value="02">02</option>
+			  <option value="03">03</option>
+			</select>
+		   
+		   <br><br>
+		    
+			
+			<label for="entrega">Entrega:</label>
+			<select id="entrega">
+			  <option value="local">Retirar no Local</option>
+			  <option value="taxa">Entregar no Endereço Citado</option>
+			</select>
+		   
+		   <br><br>
+		    
+			<button type="submit" value="Encomendar">Inserir no Carrinho</button>
+		   
+			<button type="reset">Resetar</button>
+		  
+		</form>
+			
 	</div>
-	
 
 	<footer>
 	
@@ -177,8 +196,8 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 			</div>
 	
 		<div class="disclaimer">
-			<p> Layout inteiramente desenvolvido por Isabela Andrade Souza. Todos os direitos reservados. <br>
-		Plágio é crime de acordo com a Lei Federal dos direitos autorais n°9610.</p>
+			Layout inteiramente desenvolvido por Isabela Andrade Souza. Todos os direitos reservados. <br>
+		Plágio é crime de acordo com a Lei Federal dos direitos autorais n°9610.
 		</div>
 		
 	</footer>
