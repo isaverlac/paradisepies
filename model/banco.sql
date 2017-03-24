@@ -18,8 +18,8 @@ CREATE TABLE TB_usuario(
     cidade VARCHAR(30) NOT NULL,
     cep    NUMERIC(8) NOT NULL,
     endereco VARCHAR(200) NOT NULL,
-    numeroEnd NUMERIC(5) NOT NULL,
-    complementoEnd VARCHAR(200) NOT NULL,
+    numeroEndereco NUMERIC(5) NOT NULL,
+    complementoEndereco VARCHAR(200) NOT NULL,
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(10) NOT NULL, 
 
@@ -31,6 +31,7 @@ CREATE TABLE TB_UsuarioFazPedido(
     idPedidoFeito NUMERIC(3) NOT NULL,
 
     FOREIGN KEY(cpfCliente) REFERENCES TB_usuario(cpf)
+    FOREIGN KEY(idPedidoFeito) REFERENCES TB_pedido(idPedido);
 
 );
 
@@ -39,7 +40,6 @@ CREATE TABLE TB_pedido(
     dataEntrega DATE NOT NULL,
     status VARCHAR(15) NOT NULL,
     precoTotal NUMERIC(5,2) NOT NULL,
-    item #to em duvida doq por aqui
     CONSTRAINT pedido_torta FOREIGN KEY (idPedido)
     REFERENCES TB_ItemPedido(idTorta),
 
