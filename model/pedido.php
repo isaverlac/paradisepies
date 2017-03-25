@@ -7,7 +7,7 @@ Class Pedido {
 	private $precoTotal;
 
 	public function __construct($numTortas, ) {
-		this->$idPedido = this.gerarId();
+		this->$idPedido = this->gerarId();
 		this->$dataEntrega = ;
 		this->precoTotal = 
 	}
