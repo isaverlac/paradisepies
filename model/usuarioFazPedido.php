@@ -4,7 +4,7 @@ class UsuarioFazPedido {
 	private $idPedidoFeito;
 
 
-	public function UsuarioFazPedido($cpfCliente, $idPedido) {
+	public function __construct($cpfCliente, $idPedido) {
 		$this->cpfCliente = $cpfCliente;
 		$this->idPedidoFeito = $idPedido;
 	}

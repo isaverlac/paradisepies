@@ -5,8 +5,8 @@ class PedidoFactory extends Abstprivate {
 	private $nometabela = "TB_Pedido";
 	private $campos = "idPedido, dataEntrega, status, precoTotal"
 
-	public function PedidoFactory() {
-		this->AbstractFactory();
+	public function __construct() {
+		$this->AbstractFactory();
 	}
 
 	public function salvar($obj) {

@@ -1,6 +1,6 @@
 <?php 
 
-require_once("mode/usuario.php");
+require_once("model/usuario.php");
 require_once("model/UsuarioFactory.php");
 require_once("model/pedido.php");
 require_once("model/PedidoFactory.php");
@@ -8,7 +8,7 @@ class Controller {
 	private $usuarioFactory;
 	private $pedidoFactory;
 
-	public function Controller() 	{
+	public function __construct() 	{
 		$this->usuarioFactory = new usuarioFactory();
 		$this->pedidoFactory = new PedidoFactory();
 
@@ -78,9 +78,9 @@ class Controller {
 			$sucesso = false;
 			
 			try {
-				if ($nome == "" !! $cpf == "" !! $telefone == "" !! $cidade == "" !! $cep == "" !! $endereco == "" 
-					!! $numeroEndereco == "" !! $email == "" !! $senha == "")
-					trow new Exception('Erro');
+				if ($nome == "" || $cpf == "" || $telefone == "" || $cidade == "" || $cep == "" || $endereco == "" 
+					|| $numeroEndereco == "" || $email == "" || $senha == "")
+					throw new Exception('Erro');
 
 				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco, 
 									   $complementoEndereco, $email, $senha);
@@ -146,7 +146,7 @@ class Controller {
 			$result = false;
 			try {
 				if($email = "" || $senha = "" )
-					trow new Exception('Erro');
+					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->login($email, $senha);
 
@@ -164,6 +164,7 @@ class Controller {
                     $msg = "O campo <strong>Senha</strong> deve ser preenchido!";
                 }
                 require 'view/mensagem.php';
+			}
 		}
 	}
 
@@ -177,8 +178,8 @@ class Controller {
 			$result = false;
 
 			try {
-				if ($cep == "" !! $endereco == "" !! $numeroEndereco == "")
-					trow new Exception('Erro');
+				if ($cep == "" || $endereco == "" || $numeroEndereco == "")
+					throw new Exception('Erro');
 
 				if ($complementoEndereco == "") {
 					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco, 
@@ -190,7 +191,7 @@ class Controller {
 
 
 				if(!$result) {
-					$msg = "Não foi possível alterar seu endereço, tente novamente!"
+					$msg = "Não foi possível alterar seu endereço, tente novamente!";
 					require'view/mensagem.php';
 				}
 				else {
@@ -203,6 +204,15 @@ class Controller {
                	unset($endereco);
                	unset($numeroEndereco);
                	unset($complementoEndereco);
+			} catch (Exception $e) { 
+				if ($cep == "") {
+                    $msg = "O campo <strong>Cep</strong> deve ser preenchido!";
+                } else if ($endereco == "") {
+                    $msg = "O campo <strong>Endereço</strong> deve ser preenchido!";
+                } else if ($numeroEndereco == "") {
+                    $msg = "O campo <strong>N$uacute;mero</strong> deve ser preenchido!";
+                }
+                require 'view/mensagem.php';
 			}
 
 
@@ -216,12 +226,12 @@ class Controller {
 
 			try {
 				if($email = "" )
-					trow new Exception('Erro');
+					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->alterar_senha($cpf, $email);
 
 				if(!$result) {
-					$msg = "Não foi possível alterar seu e-mail, tente novamente!"
+					$msg = "Não foi possível alterar seu e-mail, tente novamente!";
 					require'view/mensagem.php';
 				}
 				else {
@@ -248,7 +258,7 @@ class Controller {
 
 			try {
 				if($senha = "" )
-					trow new Exception('Erro');
+					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->alterar_senha($cpf, $senha);
 

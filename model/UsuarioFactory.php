@@ -6,12 +6,9 @@ class UsuarioFactory extends AbstractFactory {
 	private $nometabela = "TB_Usuario";
 	private $campos = "nome, cpf, tel, cidade, cep, end, numero, comp, email, senha";
 
-
-
-	public function UsuarioFactory() {
-		this->AbstractFactory();
+	public function __construct() {
+		$this->AbstractFactory();
 	}
-
 
 	public function salvar($obj) {
 		$usuario = $obj;	
@@ -21,7 +18,7 @@ class UsuarioFactory extends AbstractFactory {
 			") VALUES ('" . $usuario->getNome() . "'," $usuario->getCpf() . 
 			"," . $usuario->getTel() . ", '" . $usuario->getCidade() . "'," . $usuario->getCep() .
 			", '" . $usuario->getEnd() . "' , " $usuario->getNumEnderero() . ", '" .$usuario->getComplemento() .
-			"', '" .  $usuario->getEmail() . "', '" $usuario->getSenha() . "' )"; 
+			"', '" .  $usuario->getEmail() . "', '" $usuario->getSenha() . "' );"; 
 		}
 
 		if($this->db->exec($sql)) {

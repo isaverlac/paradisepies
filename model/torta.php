@@ -8,7 +8,7 @@ class Torta {
 	private $precoG;
 	private $desc;
 
-	public function Torta($nome, $precoP, $precoM, $precoM, $desc) {
+	public function __construct($nome, $precoP, $precoM, $precoM, $desc) {
 		$this->nome = $nome;
 		$this->precoP = $precoP;
 		$this->precoM = $precoM;

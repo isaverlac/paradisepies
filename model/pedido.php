@@ -3,9 +3,10 @@
 Class Pedido {
 	private $idPedido;
 	private $dataEntrega;
+	private $status;
 	private $precoTotal;
 
-	public function Pedido($numTortas, ) {
+	public function __construct($numTortas, ) {
 		this->$idPedido = this.gerarId();
 		this->$dataEntrega = ;
 		this->precoTotal = 

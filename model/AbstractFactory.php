@@ -17,7 +17,7 @@ abstract class AbstractFactory {
 
     protected $db;
 
-    public function AbstractFactory() {
+    public function __construct() {
 
         try {
             $this->db = new PDO("sqlitemysql:Model/banco.sql");

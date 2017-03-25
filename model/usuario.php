@@ -12,7 +12,7 @@ class Usuario {
 	private $email;
 	private $senha;
 
-	public function Usuario($nome, $cpf, $telefone, $cidade, $cep, $end, $numEndereco, $complementoEndereco, $email, $senha(
+	public function __construct($nome, $cpf, $telefone, $cidade, $cep, $end, $numEndereco, $complementoEndereco, $email, $senha)
 	{
 		$this->nome = $nome;
 		$this->cpf = $cpf;

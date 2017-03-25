@@ -5,7 +5,7 @@ class ItemPedido{
 	private $tamanho;
 	private $precoIndividual;
 
-	public function ItemPedido($idTorta, $tamanho, $preco) {
+	public function __construct($idTorta, $tamanho, $preco) {
 		$this->idTorta = $idTorta;
 		$this->tamanho = $tamanho;
 		$this->precoIndividual = $preco;
