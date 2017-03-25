@@ -72,7 +72,10 @@ button, .botao a {
 		font-size:20px;	
 	}
 	
-	
+	.botaoAlterar {
+		width:auto;
+		padding:0px 5px 0px 5px;
+	}
 
 /* HEADER */
 
