@@ -1,17 +1,16 @@
 CREATE SCHEMA paradisepies;
 
-CREATE TABLE TB_torta (
+CREATE TABLE TB_Torta (
     id INTEGER NOT NULL,
     nome VARCHAR (150) NOT NULL,
     precoP REAL NOT NULL,
     precoM REAL NOT NULL,
     precoG REAL NOT NULL,
     descricao VARCHAR(500), 
-    PRIMARY KEY(id),
-
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE TB_usuario(
+CREATE TABLE TB_Usuario(
     nome VARCHAR(150) NOT NULL,
     cpf NUMERIC(11) NOT NULL, 
     telefone NUMERIC(11) NOT NULL,
@@ -30,28 +29,26 @@ CREATE TABLE TB_UsuarioFazPedido(
     cpfCliente NUMERIC(11) NOT NULL,
     idPedidoFeito NUMERIC(3) NOT NULL,
 
-    FOREIGN KEY(cpfCliente) REFERENCES TB_usuario(cpf)
-    FOREIGN KEY(idPedidoFeito) REFERENCES TB_pedido(idPedido);
+    FOREIGN KEY(cpfCliente) REFERENCES TB_usuario(cpf),
+    FOREIGN KEY(idPedidoFeito) REFERENCES TB_pedido(idPedido)
 
 );
 
-CREATE TABLE TB_pedido(
+CREATE TABLE TB_Pedido(
     idPedido NUMERIC (5) NOT NULL,
     dataEntrega DATE NOT NULL,
     status VARCHAR(15) NOT NULL,
     precoTotal NUMERIC(5,2) NOT NULL,
-    CONSTRAINT pedido_torta FOREIGN KEY (idPedido)
+    CONSTRAINT pedido_torta FOREIGN KEY (idPedido),
     REFERENCES TB_ItemPedido(idTorta),
-
 
     PRIMARY KEY(idPedido)
 );
 
 CREATE TABLE TB_ItemPedido(
-    idTorta NUMERIC (10) NOT NULL,
-    #torta VARCHAR(50) NOT NULL,
+    idTorta INTEGER NOT NULL,
+    idPedido NUMERIC (5) NOT NULL,
     tamanho CHAR CHECK (tamanho IN ('P', 'M', 'G')),
-    precoIndividual NUMERIC(5,1) NOT NULL,
-PRIMARY KEY(idTorta)
-
+    FOREIGN KEY(idTorta) REFERENCES TB_torta(idTorta),
+    FOREIGN KEY(idPedido) REFERENCES TB_pedido(idPedido)
 );

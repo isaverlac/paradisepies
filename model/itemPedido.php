@@ -2,13 +2,17 @@
 
 class ItemPedido{
 	private $idTorta;
+	private $idPedido;
 	private $tamanho;
-	private $precoIndividual;
 
-	public function __construct($idTorta, $tamanho, $preco) {
+	public function __construct($idTorta, $idPedido, $tamanho) {
 		$this->idTorta = $idTorta;
+		$this->idPedido = $idPedido;
 		$this->tamanho = $tamanho;
-		$this->precoIndividual = $preco;
+	}
+
+	public function getIdPedido() {
+		return $this->idPedido;
 	}
 
 	public function getIdTorta() {
@@ -17,10 +21,6 @@ class ItemPedido{
 
 	public function getTamanho() {
 		return $this->tamanho;
-	}
-
-	public function getPrecoIndividual() {
-		return $this->precoIndividual;
 	}
 
 }
