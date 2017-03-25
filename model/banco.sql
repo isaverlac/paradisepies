@@ -36,7 +36,7 @@ CREATE TABLE TB_UsuarioFazPedido(
 );
 
 CREATE TABLE TB_pedido(
-    idPedido NUMERIC (10) NOT NULL,
+    idPedido NUMERIC (5) NOT NULL,
     dataEntrega DATE NOT NULL,
     status VARCHAR(15) NOT NULL,
     precoTotal NUMERIC(5,2) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE TB_pedido(
 
 CREATE TABLE TB_ItemPedido(
     idTorta NUMERIC (10) NOT NULL,
-    torta VARCHAR(50) NOT NULL,
+    #torta VARCHAR(50) NOT NULL,
     tamanho CHAR CHECK (tamanho IN ('P', 'M', 'G')),
     precoIndividual NUMERIC(5,1) NOT NULL,
 PRIMARY KEY(idTorta)

@@ -25,10 +25,6 @@ class Controller {
 		}
 
 		switch ($op) {
-			case 'usuario':
-				$this->usuario();
-				break;
-
 			case 'cadastra_usuario':
 				$this->cadastro_usuario();
 				break;
@@ -37,6 +33,18 @@ class Controller {
 				$this->login_usuario();
 				break;	
 			
+			case 'alterar_endereco':
+				$this->alterar_endereco();
+				break;
+
+			case 'alterar_email':
+				$this->alterar_email();
+				break;
+
+			case 'alterar_senha':
+				$this->alterar_senha();
+				break;
+
 			case 'acompanhar_pedido':
 				$this->acompanhar_pedido();
 				break;	
@@ -55,19 +63,15 @@ class Controller {
 		require 'view/index.html';
 	}
 
-	public function usuario() {
-		require 'view/'
-	}
-
 	public function casdastra_usuario() {
 		if (isset($_POST['submit'])) {
 			$nome = $_POST['nome'];
 			$cpf = $_POST['cpf'];
 			$telefone = $_POST['tel'];
-			$cidade = $_POST['cidade'];
+			$cidade = $_POST['city'];
 			$cep = $_POST['cep'];
 			$endereco = $_POST['end'];
-			$numeroEndereco = $_POST['numeroEnd'];
+			$numeroEndereco = $_POST['n'];
 			$complementoEndereco = $_POST['comp'];
 			$email = $_POST['email'];
 			$senha = $_POST['senha'];
@@ -81,8 +85,10 @@ class Controller {
 				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco, 
 									   $complementoEndereco, $email, $senha);
 
+				//Consulta o cpf no banco para verificar se o usuário já não está cadastrado
 				$result = $this->usuarioFactory->buscar($cpf);
 
+				//Se o resultado for igual a 0 itens, então cadastra o usuário
 				if(count($result) == 0) {
 					$sucesso = $this->usuarioFactory->salvar($usuario);
 				}
@@ -128,7 +134,7 @@ class Controller {
                 } else if ($senha == "") {
                     $msg = "O campo <strong>Senha</strong> deve ser preenchido!";
                 }
-                require 'View/mensagem.php';
+                require 'view/mensagem.php';
             }
 		}
 	}
@@ -142,12 +148,14 @@ class Controller {
 				if($email = "" || $senha = "" )
 					trow new Exception('Erro');
 
-			$result = $this->usuarioFactory->login($email, $senha);
+				$result = $this->usuarioFactory->login($email, $senha);
 
-			if(!$result) {
-				require'view/';
-			}
+				if(!$result) {
+					$msg = "O login falhou, tente novamente!";
+					require'view/mensagem.php';
+				}
 
+				require 'view/perfil.html';
 
 			} catch (Exception $e) { 
 				if ($email == "") {
@@ -155,7 +163,113 @@ class Controller {
                 } else if ($senha == "") {
                     $msg = "O campo <strong>Senha</strong> deve ser preenchido!";
                 }
-                require 'view/mensagem.pgp';
+                require 'view/mensagem.php';
+		}
+	}
+
+	public function alterar_endereco() {
+		if (isset($_POST['submit'])) {
+			$cidade = $_POST['cidade'];
+			$cep = $_POST['cep'];
+			$endereco = $_POST['end'];
+			$numeroEndereco = $_POST['n'];
+			$complementoEndereco = $_POST['comp'];
+			$result = false;
+
+			try {
+				if ($cep == "" !! $endereco == "" !! $numeroEndereco == "")
+					trow new Exception('Erro');
+
+				if ($complementoEndereco == "") {
+					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco, 
+							null);	
+				} else {
+					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco, 
+							$complementoEndereco);
+				}
+
+
+				if(!$result) {
+					$msg = "Não foi possível alterar seu endereço, tente novamente!"
+					require'view/mensagem.php';
+				}
+				else {
+					$msg = "Endereco alterado com sucesso!";
+					require'view/mensagem.php';
+				}
+
+				unset($cidade);
+               	unset($cep);
+               	unset($endereco);
+               	unset($numeroEndereco);
+               	unset($complementoEndereco);
+			}
+
+
+		}
+	}
+
+	public function alterar_email() {
+		if(isset($_POST['submit'])) {
+			$email = $_POST['email'];
+			$result = false;
+
+			try {
+				if($email = "" )
+					trow new Exception('Erro');
+
+				$result = $this->usuarioFactory->alterar_senha($cpf, $email);
+
+				if(!$result) {
+					$msg = "Não foi possível alterar seu e-mail, tente novamente!"
+					require'view/mensagem.php';
+				}
+				else {
+					$msg = "E-mail alterado com sucesso!";
+					require'view/mensagem.php';
+				}
+
+				unset($email);
+                unset($senha);
+			
+			} catch (Exception $e) { 
+				if ($email == "") {
+                    $msg = "O campo <strong>Email</strong> deve ser preenchido!";
+                }
+                require 'view/mensagem.php';
+			}
+		}
+	}
+
+	public function alterar_senha() {
+		if(isset($_POST['submit'])) {
+			$senha = $_POST['senha'];
+			$result = false;
+
+			try {
+				if($senha = "" )
+					trow new Exception('Erro');
+
+				$result = $this->usuarioFactory->alterar_senha($cpf, $senha);
+
+				if(!$result) {
+					$msg = "Não foi possível alterar sua senha, tente novamente!";
+					require'view/mensagem.php';
+				}
+				else {
+					$msg = "Senha alterada com sucesso!";
+					require'view/mensagem.php';
+				}
+
+				unset($email);
+                unset($senha);
+
+			} catch (Exception $e) { 
+				if ($senha == "") {
+                    $msg = "O campo <strong>Senha</strong> deve ser preenchido!";
+                }
+                require 'view/mensagem.php';
+			}
 		}
 	}
 

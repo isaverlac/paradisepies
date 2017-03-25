@@ -34,7 +34,6 @@ class UsuarioFactory extends AbstractFactory {
       		$result = false;
     	}
 
-
 	}
 
 	public function buscar($cpf) {
@@ -68,6 +67,22 @@ class UsuarioFactory extends AbstractFactory {
 		$novoEmail = $email;
 
 		$sql = "UPDATE" . $this->nometabela . "SET email =". $novoEmail ", WHERE" . $this->getCpf() " = " . $cpf;
+
+		if($this->db->exec($sql)) {
+			return true;
+      	}
+      	else {
+			return false;
+      	} catch (PDOException $exc) {
+      		echo $exc->getMessage();
+      		$result = false;
+    	}
+	}
+
+	public function alterarSenha($cpf, $senha) {
+		$novoSenha = $senha;
+
+		$sql = "UPDATE" . $this->nometabela . "SET senha =". $novoSenha ", WHERE" . $this->getCpf() " = " . $cpf;
 
 		if($this->db->exec($sql)) {
 			return true;

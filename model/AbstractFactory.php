@@ -40,7 +40,7 @@ abstract class AbstractFactory {
      * SQL "Select - From"
      * @return array -  Array de objetos da classe.
      */
-    abstract public function listar();
+    #abstract public function listar();
 
     /**
      * Busca objetos no banco de dados que atendem a um parâmetro. 
