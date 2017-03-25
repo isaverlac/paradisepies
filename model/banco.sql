@@ -3,9 +3,7 @@ CREATE SCHEMA paradisepies;
 CREATE TABLE IF NOT EXISTS paradisepies.TB_Torta (
     id INTEGER NOT NULL,
     nome VARCHAR(150) NOT NULL,
-    precoP REAL NOT NULL,
-    precoM REAL NOT NULL,
-    precoG REAL NOT NULL,
+    preco REAL NOT NULL,
     descricao VARCHAR(500), 
     PRIMARY KEY(id)
 );

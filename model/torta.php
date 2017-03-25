@@ -3,17 +3,11 @@
 class Torta {
 	
 	private $nome;
-	private $precoP;
-	private $precoM;
-	private $precoG;
-	private $desc;
+	private $preco;
 
-	public function __construct($nome, $precoP, $precoM, $precoM, $desc) {
+	public function __construct($nome, $preco) {
 		$this->nome = $nome;
-		$this->precoP = $precoP;
-		$this->precoM = $precoM;
-		$this->precoG = $precoG;
-		$this->desc = $desc;
+		$this->preco = $preco;
 	}
 
 	public function getNome() {
@@ -24,16 +18,8 @@ class Torta {
 		return $this->precoP;
 	}
 
-	public function getPrecoM() {
-		return $this->precoM;
-	}
-
-	public function getPrecoG() {
-		return $this->precoG;
-	}
-
-	public function getDesc() {
-		return $this->desc;
+	public function getPreco() {
+		return $this->preco;
 	}
 }
 

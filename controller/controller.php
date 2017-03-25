@@ -45,8 +45,8 @@ class Controller {
 				$this->alterar_senha();
 				break;
 
-			case 'acompanhar_pedido':
-				$this->acompanhar_pedido();
+			case 'fazer_pedido':
+				$this->fazer_pedido();
 				break;	
 
 			case 'finalizar_pedido':
@@ -96,6 +96,7 @@ class Controller {
 
 				 if ($sucesso) {
                     $msg = "<p>O usu$acute;rio " . $nome . " (" . $email . ") foi cadastrado com sucesso!</p>";
+                    session_start('login');
                 } else {
                     $msg = "<p>O usu$acute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
                 }
@@ -145,7 +146,7 @@ class Controller {
 			$senha = $_POST['senha'];
 			$result = false;
 			try {
-				if($email = "" || $senha = "" )
+				if($email == "" || $senha == "" )
 					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->login($email, $senha);
@@ -153,10 +154,12 @@ class Controller {
 				if(!$result) {
 					$msg = "O login falhou, tente novamente!";
 					require'view/mensagem.php';
+				} else {
+					session_start('login');
+					require 'view/perfil.html';
+
 				}
-
-				require 'view/perfil.html';
-
+				
 			} catch (Exception $e) { 
 				if ($email == "") {
                     $msg = "O campo <strong>E-mail</strong> deve ser preenchido!";
@@ -225,7 +228,7 @@ class Controller {
 			$result = false;
 
 			try {
-				if($email = "" )
+				if($email == "" )
 					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->alterar_senha($cpf, $email);
@@ -257,7 +260,7 @@ class Controller {
 			$result = false;
 
 			try {
-				if($senha = "" )
+				if($senha == "" )
 					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->alterar_senha($cpf, $senha);
@@ -283,12 +286,36 @@ class Controller {
 		}
 	}
 
-	public function acompanhar_pedido() {
-		//TODO
+	public function fazer_pedido() {
+		require'view/'; #pag de fazer o pedido
+	}
+
+	public function adicionar_torta() {
+		if (isset($_POST['submit'])) {
+			$torta = $_POST['torta'];
+			$preco = $_POST['preco'];
+			$sucerro = false;
+
+			try {
+				if($torta == "" || $preco == "") 
+					throw new Exception('Erro');
+			
+
+			} catch (Exception $e) {
+				if ($torta == "" ) {
+                    $msg = "O campo <strong>Torta</strong> deve ser preenchido!";
+                } else if($preco == "") {
+                	 $msg = "O campo <strong>Preço</strong> deve ser preenchido!";
+                }
+                require 'view/mensagem.php';
+			}
+		}	
 	}
 
 	public function finalizar_pedido() {
-		//TODO
+		
+
+
 	}
 
 
