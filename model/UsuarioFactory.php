@@ -26,8 +26,6 @@ class UsuarioFactory extends AbstractFactory {
 			"', '" .  $usuario->getEmail() .
 			"', '". $usuario->getSenha() .
 			"' );";
-			var_dump($sql);
-			die();
 
 			if($this->db->exec($sql)) {
 				return true;
