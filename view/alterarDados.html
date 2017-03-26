@@ -4,18 +4,18 @@
 <head>
 	<meta charset="utf-8">
 	<title>Paradise Pies</title>
-	
+
 	<link rel="shortcut icon" href="view/Imagens/favicon.png">
-	<link rel="stylesheet" media="screen" href="/view/style.css?v=8may2013">
+	<link rel="stylesheet" media="screen" href="view/style.css?v=8may2013">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Isabela Andrade">
 	<meta name="robots" content="all">
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	
+
 	<script>
 	$(document).ready(function(){
 	  // Add smooth scrolling to all links
@@ -34,7 +34,7 @@
 		  $('html, body').animate({
 			scrollTop: $(hash).offset().top
 		  }, 800, function(){
-	   
+
 			// Add hash (#) to URL when done scrolling (default click behavior)
 			window.location.hash = hash;
 		  });
@@ -42,22 +42,22 @@
 	  });
 	});
 	</script>
-	
-	
+
+
 	<script>
 	function msg() {
 		alert("Encomenda Realizada!");
 	}
 	</script>
-	
-	
+
+
 	<script>
 			$(document).ready(function() {
-  
+
 			  $(window).scroll(function () {
 				  //if you hard code, then use console
-				  //.log to determine when you want the 
-				  //nav bar to stick.  
+				  //.log to determine when you want the
+				  //nav bar to stick.
 				  console.log($(window).scrollTop())
 				if ($(window).scrollTop() > 210) {
 				  $('nav').addClass('navbar-fixed');
@@ -86,129 +86,129 @@
 <div class="caixas">
 
 	<div class="caixa">
-		
+
 		<form action="/paradisepies?op=alterar_email" method="post">
-		
+
 			<h1>Altere seu e-mail</h1>
-			
+
 			<label for="email">Email:</label>
 			<input type="email" id="email" name="email" placeholder="name@name.com.br">
-		
+
 			<button type="submit" value="Alterar" class="botaoAlterar">OK</button>
-		   
+
 			<button type="reset" class="botaoAlterar">Resetar</button>
-			
+
 		</form>
-		
+
 		<form action="/paradisepies?op=alterar_senha" method="post">
-		
+
 			<h1>Altere sua senha</h1>
-			
-			<label for="senha">Digite sua senha:</label> 
+
+			<label for="senha">Digite sua senha:</label>
 			<input type="password" id="senha" name="senha" placeholder="password" required />
-		   
+
 			<button type="submit" value="Alterar" class="botaoAlterar">OK</button>
-		   
+
 			<button type="reset" class="botaoAlterar">Resetar</button>
-			
+
 		</form>
-		
+
 		<form action="?op=alterar_endereco" method="post">
-		
+
 			<h1>Altere seus dados pessoais </h1>
-			
+
 			<label for="tel">Telefone:</label>
 			<input type="tel" id="tel" name="tel" required placeholder="(99) 9999-9999" pattern="[(]?[0]?[0-9]{2}[)]?[ ]?[0-9]{4,5}[ -.]?[0-9]{4}">
-			
+
 			<br><br>
-			
+
 			<label for="city">Cidade:</label>
 			<select id="city" name="city">
 			  <option value="selecione">Selecione</option>
 			  <option value="cg">Campo Grande</option>
 			</select>
-			
+
 			<br><br>
-			
+
 			<label for="cep">CEP:</label>
 			<input type="text" id="cep" name="cep" required placeholder="99999-999" pattern="[0-9]{2}[.]?[0-9]{3}-?[0-9]{3}">
-			
+
 			<br><br>
-			
-			
+
+
 			<label for="end">Endereço:</label>
 			<input type="text" id="end" name="end" maxlength="250" required placeholder="Rua Name">
-			
+
 			<br><br>
-			
+
 			<label for="n">Número:</label>
 			<input type="number" id="n" name="n" required placeholder="999">
-			
+
 			<br><br>
-			
+
 			<label for="comp">Complemento:</label>
 			<input type="text" id="comp" name="comp" placeholder="Bloco 9, AP 9">
-			
+
 			<br><br>
-		   
+
 			<button type="submit" value="Alterar">Alterar</button>
-		   
+
 			<button type="reset">Resetar</button>
-			
+
 		</form>
-  
+
 
 	</div>
 
 
-	
+
 	<footer>
-	
+
 			<div class="rs">
 				<h2>Onde nos encontrar</h2>
 
-			
+
 					<a href="https://www.facebook.com/paradisepie/"> <img src="view/Social/facebook.png" alt="facebook"/> curta nossa página </a>
 					<a href="https://www.instagram.com/paradise.pies/"> <img src="view/Social/instagram.png" alt="instagram"/> nos siga no instagram  </a>
-					
+
 					<br>
-					 
-					 <img src="view/Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS 
-					 
+
+					 <img src="view/Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS
+
 					 <br>
-					 
-					 <img src="view/Social/email.png" alt="Email"/> paradisepies@gmail.com 
-			
-				
+
+					 <img src="view/Social/email.png" alt="Email"/> paradisepies@gmail.com
+
+
 			</div>
-			
+
 			<div class="me">
-			
+
 			<h2>Sobre Mim</h2>
-			
+
 			<div class="caixaSobreMim">
-			  
-			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/> 
-			  
+
+			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/>
+
 			  Meu nome é Isabela, tenho 20 anos. Sou apaixonada por doces e por web design. Faço ambos com muito carinho, gosto de agradar as pessoas com as
-			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá 
-			  
+			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá
+
 			</div>
-			
-		
-			
+
+
+
 			<a href="https://www.facebook.com/isaverlac/"><img src="view/Social/facebook.png" alt="facebook"/></a>
 			<a href="https://twitter.com/isaverlac"><img src="view/Social/instagram.png" alt="instagram"/></a>
 			<a href="https://www.instagram.com/isaverlac/"><img src="view/Social/twitter.png" alt="twitter"/></a>
 			<a href="https://city0fglass.tumblr.com"><img src="view/Social/tumblr.png" alt="tumblr"/></a>
-			
+
 			</div>
-	
+
 		<div class="disclaimer">
 			<p> Layout inteiramente desenvolvido por Isabela Andrade Souza. Todos os direitos reservados. <br>
 		Plágio é crime de acordo com a Lei Federal dos direitos autorais n°9610.</p>
 		</div>
-		
+
 	</footer>
 </div>
 
