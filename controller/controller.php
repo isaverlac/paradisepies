@@ -166,7 +166,9 @@ class Controller {
 					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->login($email, $senha);
-
+				var_dump($result);
+				die();
+				
 				if(!$result) {
 					$msg = "O login falhou, tente novamente!";
 					require'view/mensagem.php';
