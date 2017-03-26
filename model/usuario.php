@@ -12,7 +12,7 @@ class Usuario {
 	private $email;
 	private $senha;
 
-	public function __construct($nome, $cpf, $telefone, $cidade, $cep, $end, $numEndereco, $complementoEndereco, $email, $senha)
+	public function __construct($nome, $cpf, $telefone, $cidade, $cep, $end, $numEndereco, $complementoEndereco = "", $email, $senha)
 	{
 		$this->nome = $nome;
 		$this->cpf = $cpf;
@@ -20,7 +20,7 @@ class Usuario {
 		$this->cidade = $cidade;
 		$this->cep = $cep;
 		$this->end = $end;
-		$this->numEndereco = $numeroEndereco;
+		$this->numEndereco = $numEndereco;
 		$this->complementoEndereco = $complementoEndereco;
 		$this->email = $email;
 		$this->senha = $senha;

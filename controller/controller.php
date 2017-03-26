@@ -100,8 +100,7 @@ class Controller {
 
 				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco, 
 									   $complementoEndereco, $email, $senha);
-				var_dump($usuario);
-				die();
+
 				//Consulta o cpf no banco para verificar se o usuário já não está cadastrado
 				$result = $this->usuarioFactory->buscar($cpf);
 
