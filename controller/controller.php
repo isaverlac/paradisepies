@@ -2,15 +2,15 @@
 
 require_once("model/usuario.php");
 require_once("model/UsuarioFactory.php");
-require_once("model/pedido.php");
-require_once("model/PedidoFactory.php");
+#require_once("model/pedido.php");
+#require_once("model/PedidoFactory.php");
 class Controller {
 	private $usuarioFactory;
 	private $pedidoFactory;
 
 	public function __construct() 	{
 		$this->usuarioFactory = new usuarioFactory();
-		$this->pedidoFactory = new PedidoFactory();
+#		$this->pedidoFactory = new PedidoFactory();
 
 		ini_set('error_reporting', E_ALL);
         ini_set('display_errors', 1);
@@ -26,7 +26,7 @@ class Controller {
 
 		switch ($op) {
 			case 'cadastra_usuario':
-				$this->cadastro_usuario();
+				$this->cadastra_usuario();
 				break;
 
 			case 'login':
@@ -79,7 +79,7 @@ class Controller {
 		require 'view/alterarDados.html';
 	}
 
-	public function casdastra_usuario() {
+	public function cadastra_usuario() {
 		if (isset($_POST['submit'])) {
 			$nome = $_POST['nome'];
 			$cpf = $_POST['cpf'];
@@ -100,7 +100,8 @@ class Controller {
 
 				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco, 
 									   $complementoEndereco, $email, $senha);
-
+				var_dump($usuario);
+				die();
 				//Consulta o cpf no banco para verificar se o usuário já não está cadastrado
 				$result = $this->usuarioFactory->buscar($cpf);
 
@@ -108,11 +109,11 @@ class Controller {
 				if(count($result) == 0) {
 					$sucesso = $this->usuarioFactory->salvar($usuario);
 				}
-				echo sucesso;
+				echo $sucesso;
 
-				 if ($sucesso) {
+				if ($sucesso) {
                     $msg = "<p>O usu$acute;rio " . $nome . " (" . $email . ") foi cadastrado com sucesso!</p>";
-                    session_start('login');
+                    require 'view/mensagem.php';
                 } else {
                     $msg = "<p>O usu$acute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
                 }

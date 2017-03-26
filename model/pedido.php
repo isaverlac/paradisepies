@@ -10,9 +10,9 @@ Class Pedido {
 	private $listaDeTortas;
 	
 	public function __construct($obj) {
-		this->usuario = $obj;
-		this->$idPedido = this->gerarId();
-		this->$listaDeTortas = new ArrayObject();
+		$this->usuario = $obj;
+		$this->$idPedido = this->gerarId();
+		$this->$listaDeTortas = new ArrayObject();
 	}
 
 	private function gerarId() {
