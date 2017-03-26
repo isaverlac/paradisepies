@@ -179,7 +179,9 @@ class Controller {
 					$msg = "O login falhou, tente novamente!";
 					require'view/mensagem.php';
 				} else {
-					session_start();
+					session_start("paradisepies");
+					$_SESSION["id_usuario"]=$result[0]->getCpf();
+
 					$this->perfil();
 				}
 
