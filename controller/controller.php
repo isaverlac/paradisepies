@@ -28,7 +28,15 @@ class Controller {
 			case 'cadastra_usuario':
 				$this->cadastro_usuario();
 				break;
+
+			case 'login':
+				$this->login();
+				break;
 			
+			case 'alterar_dados':
+				$this->alterar_dados();
+				break;
+				
 			case 'login_usuario':
 				$this->login_usuario();
 				break;	
@@ -61,6 +69,14 @@ class Controller {
 
 	public function index()	{
 		require 'view/index.html';
+	}
+
+	public function login() {
+		require 'view/login.html';
+	}
+
+	public function alterar_dados() {
+		require 'view/alterarDados.html';
 	}
 
 	public function casdastra_usuario() {
