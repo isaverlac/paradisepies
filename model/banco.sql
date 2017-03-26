@@ -10,7 +10,11 @@ CREATE TABLE IF NOT EXISTS paradisepies.TB_Torta (
 
 CREATE TABLE IF NOT EXISTS paradisepies.TB_Usuario(
     nome VARCHAR(150) NOT NULL,
+<<<<<<< HEAD
     cpf VARCHAR(14) NOT NULL, 
+=======
+    cpf VARCHAR(13) NOT NULL, 
+>>>>>>> 5fedb2624d3e40e0b226b15d5df52503b35e79a6
     telefone VARCHAR(14) NOT NULL,
     cidade VARCHAR(30) NOT NULL,
     cep    VARCHAR(9) NOT NULL,
