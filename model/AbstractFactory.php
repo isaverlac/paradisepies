@@ -22,7 +22,7 @@ public function __construct() {
     $username = "root";
 
     try {
-            $this->db = new PDO("mysql:host=$servername;dbname=paradisepies", $username, "pH46_ec#avem");
+            $this->db = new PDO("mysql:host=$servername;dbname=paradisepies", $username);
             // set the PDO error mode to exception
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             if($this->db == null)
