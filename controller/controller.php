@@ -111,10 +111,10 @@ class Controller {
 				echo $sucesso;
 
 				if ($sucesso) {
-                    $msg = "<p>O usu&acute;rio " . $nome . " (" . $email . ") foi cadastrado com sucesso!</p>";
+                    $msg = "<p>O usu&aacute;rio " . $nome . " (" . $email . ") foi cadastrado com sucesso!</p>";
                     require 'view/mensagem.php';
                 } else {
-                    $msg = "<p>O usu&acute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
+                    $msg = "<p>O usu&aacute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
                 }
 
                 unset($nome);
