@@ -118,7 +118,7 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
 <div id="sticky-anchor"></div>
 <nav>
-	<a href="view/cadastroUsuario.html"> Voltar </a>
+	<a href="/paradisepies?op=cadastroUsuario"> Voltar </a>
 </nav>
 
 
