@@ -33,6 +33,10 @@ class Controller {
 				$this->login();
 				break;
 
+			case 'perfil':
+				$this->perfil();
+				break;
+
 			case 'alterar_dados':
 				$this->alterar_dados();
 				break;
@@ -77,6 +81,10 @@ class Controller {
 
 	public function alterar_dados() {
 		require 'view/alterarDados.html';
+	}
+
+	public function perfil() {
+		require 'view/perfil.html';
 	}
 
 	public function cadastra_usuario() {
@@ -166,16 +174,13 @@ class Controller {
 					throw new Exception('Erro');
 
 				$result = $this->usuarioFactory->login($email, $senha);
-				var_dump($result);
-				die();
-				
-				if(!$result) {
+
+				if($result == null) {
 					$msg = "O login falhou, tente novamente!";
 					require'view/mensagem.php';
 				} else {
-					session_start('login');
-					require 'view/perfil.html';
-
+					session_start();
+					$this->perfil();
 				}
 
 			} catch (Exception $e) {

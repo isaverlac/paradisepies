@@ -20,7 +20,7 @@ class Usuario {
 		$this->cidade = $cidade;
 		$this->cep = $cep;
 		$this->end = $end;
-		$this->numEndereco = $numEndereco;
+		$this->numeroEndereco = $numEndereco;
 		$this->complementoEndereco = $complementoEndereco;
 		$this->email = $email;
 		$this->senha = $senha;
@@ -52,7 +52,7 @@ class Usuario {
 	}
 	
 	public function getNumEndereco() {
-		return $this->numEndereco;
+		return $this->numeroEndereco;
 	}
 
 	public function getComplemento() {

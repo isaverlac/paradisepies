@@ -43,7 +43,7 @@ class UsuarioFactory extends AbstractFactory {
 
 	public function buscar($cpf) {
 
-		$sql = "SELECT * FROM " . $this->nometabela . "WHERE cpf= '" . $cpf . "'";
+		$sql = "SELECT * FROM " . $this->nometabela . " WHERE cpf= '" . $cpf . "'";
 
 		$resultObject = null;
 
@@ -59,8 +59,10 @@ class UsuarioFactory extends AbstractFactory {
 	}
 
 	public function login($email, $senha) {
-		$sql = "SELECT * FROM " . $this->nometabela . "WHERE email='" . $email . "' AND senha= '" . $senha . "';";
 		
+		$sql = "SELECT * FROM " . $this->nometabela . " WHERE email='" . $email . "' AND senha= '" . $senha . "';";
+		$resultObject = null;
+
 		try {
 			$resultPDOstmt = $this->db->query($sql);
 			$resultObject = $this->queryRowsToListOfObjects($resultPDOstmt, "Usuario");
