@@ -17,14 +17,22 @@ abstract class AbstractFactory {
 
     protected $db;
 
-    public function __construct() {
+public function __construct() {
+    $servername = "localhost";
+    $username = "root";
 
-        try {
-            $this->db = new PDO("sqlitemysql:Model/banco.sql");
-        } catch (PDOException $exception) {
-            echo $exception->getMessage();
-        } catch (Exception $exception) {
-            echo $exception->getMessage();
+    try {
+            $db = new PDO("mysql:host=$servername;dbname=paradisepies", $username);
+            // set the PDO error mode to exception
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            if($db == null)
+            {
+                throw new Exception('Erro');
+            }
+        }
+    catch(PDOException $e)
+        {
+            echo "Connection failed: " . $e->getMessage();
         }
     }
 
