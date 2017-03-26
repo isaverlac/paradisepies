@@ -87,7 +87,7 @@
 
 	<div class="caixa">
 		
-		<form>
+		<form action="?op=alterar_email" method="post">
 		
 			<h1>Altere seu e-mail</h1>
 			
@@ -100,7 +100,7 @@
 			
 		</form>
 		
-		<form>
+		<form action="?op=alterar_senha" method="post">
 		
 			<h1>Altere sua senha</h1>
 			
@@ -113,14 +113,9 @@
 			
 		</form>
 		
-		<form>
+		<form action="?op=alterar_endereco" method="post">
 		
 			<h1>Altere seus dados pessoais </h1>
-			
-			<label for="nome">Nome Completo:</label> 
-			<input type="text" maxlength="150" id="nome" name="nome" required placeholder="Firstname Middlename Lastname"> 
-			
-			<br><br>
 			
 			<label for="tel">Telefone:</label>
 			<input type="tel" id="tel" name="tel" required placeholder="(99) 9999-9999" pattern="[(]?[0]?[0-9]{2}[)]?[ ]?[0-9]{4,5}[ -.]?[0-9]{4}">

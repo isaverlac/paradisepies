@@ -16,11 +16,11 @@ class UsuarioFactory extends AbstractFactory {
 		try {
 			$sql = "INSERT INTO" . $this->nometabela . "(" . $this->campos .
 			") VALUES ('" . $usuario->getNome() .
-			"',". $usuario->getCpf() . 
-			"," . $usuario->getTel() . 
-			", '" . $usuario->getCidade() . 
-			"'," . $usuario->getCep() .
-			", '" . $usuario->getEnd() . 
+			"','". $usuario->getCpf() . 
+			"','" . $usuario->getTel() . 
+			"', '" . $usuario->getCidade() . 
+			"','" . $usuario->getCep() .
+			"', '" . $usuario->getEnd() . 
 			"' , ". $usuario->getNumEnderero() . 
 			", '" .$usuario->getComplemento() .
 			"', '" .  $usuario->getEmail() . 
