@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once("model/usuario.php");
 require_once("model/UsuarioFactory.php");
@@ -17,7 +17,7 @@ class Controller {
 	}
 
 	public function init() 	{
-		
+
 		if (isset($_GET['op'])) {
 		    $op = $_GET['op'];
 		} else {
@@ -32,15 +32,15 @@ class Controller {
 			case 'login':
 				$this->login();
 				break;
-			
+
 			case 'alterar_dados':
 				$this->alterar_dados();
 				break;
-				
+
 			case 'login_usuario':
 				$this->login_usuario();
-				break;	
-			
+				break;
+
 			case 'alterar_endereco':
 				$this->alterar_endereco();
 				break;
@@ -55,7 +55,7 @@ class Controller {
 
 			case 'fazer_pedido':
 				$this->fazer_pedido();
-				break;	
+				break;
 
 			case 'finalizar_pedido':
 				$this->finalizar_pedido();
@@ -64,7 +64,7 @@ class Controller {
 			default:
 		        $this->index();
 		        break;
-		}	
+		}
 	}
 
 	public function index()	{
@@ -92,13 +92,13 @@ class Controller {
 			$email = $_POST['email'];
 			$senha = $_POST['senha'];
 			$sucesso = false;
-			
+
 			try {
-				if ($nome == "" || $cpf == "" || $telefone == "" || $cidade == "" || $cep == "" || $endereco == "" 
+				if ($nome == "" || $cpf == "" || $telefone == "" || $cidade == "" || $cep == "" || $endereco == ""
 					|| $numeroEndereco == "" || $email == "" || $senha == "")
 					throw new Exception('Erro');
 
-				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco, 
+				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco,
 									   $complementoEndereco, $email, $senha);
 
 				//Consulta o cpf no banco para verificar se o usuário já não está cadastrado
@@ -155,7 +155,7 @@ class Controller {
             }
 		}
 	}
-	
+
 	public function login_usuario() {
 		if (isset($_POST['submit'])) {
 			$email = $_POST['email'];
@@ -175,8 +175,8 @@ class Controller {
 					require 'view/perfil.html';
 
 				}
-				
-			} catch (Exception $e) { 
+
+			} catch (Exception $e) {
 				if ($email == "") {
                     $msg = "O campo <strong>E-mail</strong> deve ser preenchido!";
                 } else if ($senha == "") {
@@ -201,10 +201,10 @@ class Controller {
 					throw new Exception('Erro');
 
 				if ($complementoEndereco == "") {
-					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco, 
-							null);	
+					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco,
+							null);
 				} else {
-					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco, 
+					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco,
 							$complementoEndereco);
 				}
 
@@ -223,7 +223,7 @@ class Controller {
                	unset($endereco);
                	unset($numeroEndereco);
                	unset($complementoEndereco);
-			} catch (Exception $e) { 
+			} catch (Exception $e) {
 				if ($cep == "") {
                     $msg = "O campo <strong>Cep</strong> deve ser preenchido!";
                 } else if ($endereco == "") {
@@ -260,8 +260,8 @@ class Controller {
 
 				unset($email);
                 unset($senha);
-			
-			} catch (Exception $e) { 
+
+			} catch (Exception $e) {
 				if ($email == "") {
                     $msg = "O campo <strong>Email</strong> deve ser preenchido!";
                 }
@@ -293,7 +293,7 @@ class Controller {
 				unset($email);
                 unset($senha);
 
-			} catch (Exception $e) { 
+			} catch (Exception $e) {
 				if ($senha == "") {
                     $msg = "O campo <strong>Senha</strong> deve ser preenchido!";
                 }
@@ -313,9 +313,9 @@ class Controller {
 			$sucerro = false;
 
 			try {
-				if($torta == "" || $preco == "") 
+				if($torta == "" || $preco == "")
 					throw new Exception('Erro');
-			
+
 
 			} catch (Exception $e) {
 				if ($torta == "" ) {
@@ -325,11 +325,11 @@ class Controller {
                 }
                 require 'view/mensagem.php';
 			}
-		}	
+		}
 	}
 
 	public function finalizar_pedido() {
-		
+
 
 
 	}

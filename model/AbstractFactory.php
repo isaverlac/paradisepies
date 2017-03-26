@@ -1,5 +1,5 @@
 <?php
- 
+
 /*
  * Material utilizado para as aulas práticas da disciplinas da Faculdade de
  * Computação da Universidade Federal de Mato Grosso do Sul (FACOM / UFMS).
@@ -22,10 +22,10 @@ public function __construct() {
     $username = "root";
 
     try {
-            $db = new PDO("mysql:host=$servername;dbname=paradisepies", $username);
+            $this->db = new PDO("mysql:host=$servername;dbname=paradisepies", $username, "pH46_ec#avem");
             // set the PDO error mode to exception
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            if($db == null)
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            if($this->db == null)
             {
                 throw new Exception('Erro');
             }
@@ -37,30 +37,30 @@ public function __construct() {
     }
 
     /**
-     * Persiste um objeto no banco. Executa um SQL "Insert into..."     
+     * Persiste um objeto no banco. Executa um SQL "Insert into..."
      * @param Object $obj - Objeto a ser persistido.
      * @return boolean - se conseguiu salvar ou não.
      */
     abstract public function salvar($obj);
 
     /**
-     * Lista os objetos persistidos no banco, ou seja, executa um 
+     * Lista os objetos persistidos no banco, ou seja, executa um
      * SQL "Select - From"
      * @return array -  Array de objetos da classe.
      */
     #abstract public function listar();
 
     /**
-     * Busca objetos no banco de dados que atendem a um parâmetro. 
+     * Busca objetos no banco de dados que atendem a um parâmetro.
      * Executa um SQL "Select - From - Where"
      * @param string $param - parâmetro a ser buscado.
-     * @return  array -  Array de objetos da classe, ou null se não encontrar 
+     * @return  array -  Array de objetos da classe, ou null se não encontrar
      * objetos.
      */
     abstract public function buscar($param);
 
     /**
-     * Faz o mapeamento Objeto-Relacional, transformando um resultado de 
+     * Faz o mapeamento Objeto-Relacional, transformando um resultado de
      * consulta (PDOStatement) em uma lista de Objetos recuperados.
      * @param PDOStatement $result - o resultado da consulta
      * @param String $nameObject - nome da Classe de objetos

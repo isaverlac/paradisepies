@@ -4,34 +4,31 @@ require_once("AbstractFactory.php");
 
 class UsuarioFactory extends AbstractFactory {
 	private $nometabela = "paradisepies.TB_Usuario";
-	private $campos = "nome, cpf, tel, cidade, cep, end, numero, comp, email, senha";
+	private $campos = "nome, cpf, telefone, cidade, cep, endereco, numeroEndereco, complementoEndereco, email, senha";
 
 	public function __construct() {
 		parent::__construct();
 	}
 
 	public function salvar($obj) {
-		$usuario = $obj;	
+		$usuario = $obj;
 
 		try {
-			$sql = "INSERT INTO" . $this->nometabela . "(" . $this->campos .
+			$sql = "INSERT INTO " . $this->nometabela . "(" . $this->campos .
 			") VALUES ('" . $usuario->getNome() .
-			"', '". $usuario->getCpf() . 
-			"', '" . $usuario->getTel() . 
-			"', '" . $usuario->getCidade() . 
+			"', '". $usuario->getCpf() .
+			"', '" . $usuario->getTelefone() .
+			"', '" . $usuario->getCidade() .
 			"', '" . $usuario->getCep() .
-			"', '" . $usuario->getEnd() . 
-			"', ". $usuario->getNumEnderero() . 
-			"','". $usuario->getCpf() . 
-			"','" . $usuario->getTel() . 
-			"', '" . $usuario->getCidade() . 
-			"','" . $usuario->getCep() .
-			"', '" . $usuario->getEnd() . 
-			"' , ". $usuario->getNumEnderero() .
+			"', '" . $usuario->getEnd() .
+			"', ". $usuario->getNumEndereco() .
 			", '" .$usuario->getComplemento() .
-			"', '" .  $usuario->getEmail() . 
-			"', '". $usuario->getSenha() . 
-			"' );";  
+			"', '" .  $usuario->getEmail() .
+			"', '". $usuario->getSenha() .
+			"' );";
+			var_dump($sql);
+			die();
+
 			if($this->db->exec($sql)) {
 				return true;
 	      	}
@@ -47,8 +44,11 @@ class UsuarioFactory extends AbstractFactory {
 	}
 
 	public function buscar($cpf) {
-		
+
 		$sql = "SELECT * FROM " . $this->nometabela . "WHERE cpf= '" . $cpf . "'";
+
+		$resultObject = null;
+
 		try {
 			$resultPDOstmt = $this->db->query($sql);
 			$resultObject = $this->queryRowsToListOfObjects($resultPDOstmt, "Usuario");
@@ -56,7 +56,7 @@ class UsuarioFactory extends AbstractFactory {
       		echo $exc->getMessage();
       		$result = null;
     	}
-    
+
     	return $resultObject;
 	}
 
@@ -69,7 +69,7 @@ class UsuarioFactory extends AbstractFactory {
       		echo $exc->getMessage();
       		$result = null;
     	}
-    
+
     	return $resultObject;
 	}
 
@@ -114,8 +114,8 @@ class UsuarioFactory extends AbstractFactory {
 		$novoComplementoEndereco = $complementoEndereco;
 		try{
 			$sql = "UPDATE" . $this->nometabela . "SET cep=" . $novoCep . ", endereco=" . $novoEndereco .
-					", numeroEndereco=" . $novoNumeroEndereco . ", complementoEndereco=" . $novoComplementoEndereco . 
-					" WHERE cpf=". $cpf; 
+					", numeroEndereco=" . $novoNumeroEndereco . ", complementoEndereco=" . $novoComplementoEndereco .
+					" WHERE cpf=". $cpf;
 
 
 			if($this->db->exec($sql)) {
