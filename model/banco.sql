@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS paradisepies.TB_Usuario(
     cpf VARCHAR(14) NOT NULL, 
     telefone VARCHAR(14) NOT NULL,
     cidade VARCHAR(30) NOT NULL,
-    cep    VARCHAR(9) NOT NULL,
+    cep    VARCHAR(10) NOT NULL,
     endereco VARCHAR(200) NOT NULL,
     numeroEndereco NUMERIC(5) NOT NULL,
     complementoEndereco VARCHAR(200),
