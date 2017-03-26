@@ -7,7 +7,7 @@ class UsuarioFactory extends AbstractFactory {
 	private $campos = "nome, cpf, tel, cidade, cep, end, numero, comp, email, senha";
 
 	public function __construct() {
-		$this->AbstractFactory();
+		parent::__construct();
 	}
 
 	public function salvar($obj) {
@@ -15,17 +15,24 @@ class UsuarioFactory extends AbstractFactory {
 
 		try {
 			$sql = "INSERT INTO" . $this->nometabela . "(" . $this->campos .
-			") VALUES ('" . $usuario->getNome() . "'," $usuario->getCpf() . 
-			"," . $usuario->getTel() . ", '" . $usuario->getCidade() . "'," . $usuario->getCep() .
-			", '" . $usuario->getEnd() . "' , " $usuario->getNumEnderero() . ", '" .$usuario->getComplemento() .
-			"', '" .  $usuario->getEmail() . "', '" $usuario->getSenha() . "' );"; 
+			") VALUES ('" . $usuario->getNome() .
+			"',". $usuario->getCpf() . 
+			"," . $usuario->getTel() . 
+			", '" . $usuario->getCidade() . 
+			"'," . $usuario->getCep() .
+			", '" . $usuario->getEnd() . 
+			"' , ". $usuario->getNumEnderero() . 
+			", '" .$usuario->getComplemento() .
+			"', '" .  $usuario->getEmail() . 
+			"', '". $usuario->getSenha() . 
+			"' );"; 
+			if($this->db->exec($sql)) {
+				return true;
+	      	}
+	      	else {
+				return false;
 		}
 
-		if($this->db->exec($sql)) {
-			return true;
-      	}
-      	else {
-			return false;
       	} catch (PDOException $exc) {
       		echo $exc->getMessage();
       		$result = false;
@@ -62,14 +69,15 @@ class UsuarioFactory extends AbstractFactory {
 
 	public function alterarEmail($cpf, $email) {
 		$novoEmail = $email;
+		try{
+			$sql = "UPDATE" . $this->nometabela . "SET email =". $novoEmail . ", WHERE" . $this->getCpf() ." = " . $cpf;
 
-		$sql = "UPDATE" . $this->nometabela . "SET email =". $novoEmail ", WHERE" . $this->getCpf() " = " . $cpf;
-
-		if($this->db->exec($sql)) {
-			return true;
-      	}
-      	else {
-			return false;
+			if($this->db->exec($sql)) {
+				return true;
+	      	}
+	      	else {
+				return false;
+		}
       	} catch (PDOException $exc) {
       		echo $exc->getMessage();
       		$result = false;
@@ -78,14 +86,15 @@ class UsuarioFactory extends AbstractFactory {
 
 	public function alterarSenha($cpf, $senha) {
 		$novoSenha = $senha;
+		try{
+			$sql = "UPDATE" . $this->nometabela . "SET senha =". $novoSenha .", WHERE" . $this->getCpf() ." = " . $cpf;
 
-		$sql = "UPDATE" . $this->nometabela . "SET senha =". $novoSenha ", WHERE" . $this->getCpf() " = " . $cpf;
-
-		if($this->db->exec($sql)) {
-			return true;
-      	}
-      	else {
-			return false;
+			if($this->db->exec($sql)) {
+				return true;
+	      	}
+	      	else {
+				return false;
+		}
       	} catch (PDOException $exc) {
       		echo $exc->getMessage();
       		$result = false;
@@ -97,17 +106,18 @@ class UsuarioFactory extends AbstractFactory {
 		$novoEndereco = $endereco;
 		$novoNumeroEndereco = $numeroEndereco;
 		$novoComplementoEndereco = $complementoEndereco;
+		try{
+			$sql = "UPDATE" . $this->nometabela . "SET cep=" . $novoCep . ", endereco=" . $novoEndereco .
+					", numeroEndereco=" . $novoNumeroEndereco . ", complementoEndereco=" . $novoComplementoEndereco . 
+					" WHERE cpf=". $cpf; 
 
-		$sql = "UPDATE" . $this->nometabela . "SET cep=" . $novoCep . ", endereco=" . $novoEndereco .
-				", numeroEndereco=" . $novoNumeroEndereco . ", complementoEndereco=" . $novoComplementoEndereco . 
-				" WHERE cpf=" $cpf; 
 
-
-		if($this->db->exec($sql)) {
-			return true;
-      	}
-      	else {
-			return false;
+			if($this->db->exec($sql)) {
+				return true;
+	      	}
+	      	else {
+				return false;
+		}
       	} catch (PDOException $exc) {
       		echo $exc->getMessage();
       		$result = false;

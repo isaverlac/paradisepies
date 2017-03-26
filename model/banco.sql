@@ -1,16 +1,14 @@
 CREATE SCHEMA paradisepies;
 
-CREATE TABLE TB_Torta (
+CREATE TABLE IF NOT EXISTS paradisepies.TB_Torta (
     id INTEGER NOT NULL,
-    nome VARCHAR (150) NOT NULL,
-    precoP REAL NOT NULL,
-    precoM REAL NOT NULL,
-    precoG REAL NOT NULL,
+    nome VARCHAR(150) NOT NULL,
+    preco REAL NOT NULL,
     descricao VARCHAR(500), 
     PRIMARY KEY(id)
 );
 
-CREATE TABLE TB_Usuario(
+CREATE TABLE IF NOT EXISTS paradisepies.TB_Usuario(
     nome VARCHAR(150) NOT NULL,
     cpf NUMERIC(11) NOT NULL, 
     telefone NUMERIC(11) NOT NULL,
@@ -25,30 +23,29 @@ CREATE TABLE TB_Usuario(
     PRIMARY KEY(cpf)
 );
 
-CREATE TABLE TB_UsuarioFazPedido(
+CREATE TABLE IF NOT EXISTS paradisepies.TB_UsuarioFazPedido(
     cpfCliente NUMERIC(11) NOT NULL,
     idPedidoFeito NUMERIC(3) NOT NULL,
 
-    FOREIGN KEY(cpfCliente) REFERENCES TB_usuario(cpf),
-    FOREIGN KEY(idPedidoFeito) REFERENCES TB_pedido(idPedido)
+    FOREIGN KEY(cpfCliente) REFERENCES paradisepies.TB_usuario(cpf),
+    FOREIGN KEY(idPedidoFeito) REFERENCES paradisepies.TB_pedido(idPedido)
 
 );
 
-CREATE TABLE TB_Pedido(
-    idPedido NUMERIC (5) NOT NULL,
+CREATE TABLE IF NOT EXISTS paradisepies.TB_Pedido(
+    idPedido NUMERIC(5) NOT NULL,
     dataEntrega DATE NOT NULL,
     status VARCHAR(15) NOT NULL,
     precoTotal NUMERIC(5,2) NOT NULL,
-    CONSTRAINT pedido_torta FOREIGN KEY (idPedido),
-    REFERENCES TB_ItemPedido(idTorta),
-
+    CONSTRAINT pedido_torta FOREIGN KEY (idPedido)
+    REFERENCES paradisepies.TB_ItemPedido(idTorta),
     PRIMARY KEY(idPedido)
 );
 
-CREATE TABLE TB_ItemPedido(
+CREATE TABLE IF NOT EXISTS paradisepies.TB_ItemPedido(
     idTorta INTEGER NOT NULL,
     idPedido NUMERIC (5) NOT NULL,
     tamanho CHAR CHECK (tamanho IN ('P', 'M', 'G')),
-    FOREIGN KEY(idTorta) REFERENCES TB_torta(idTorta),
-    FOREIGN KEY(idPedido) REFERENCES TB_pedido(idPedido)
+    FOREIGN KEY(idTorta) REFERENCES paradisepies.TB_torta(idTorta),
+    FOREIGN KEY(idPedido) REFERENCES paradisepies.TB_pedido(idPedido)
 );
