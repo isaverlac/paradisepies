@@ -108,16 +108,16 @@ class UsuarioFactory extends AbstractFactory {
     	}
 	}
 
-	public function alterarEndereco($cpf, $cep, $endereco, $numeroEndereco, $complementoEndereco) {
+	public function alterar_endereco($cpf, $cep, $endereco, $numeroEndereco, $complementoEndereco = '') {
 		$novoCep = $cep;
 		$novoEndereco = $endereco;
 		$novoNumeroEndereco = $numeroEndereco;
 		$novoComplementoEndereco = $complementoEndereco;
-		try{
-			$sql = "UPDATE " . $this->nometabela . " SET cep=" . $novoCep . ", endereco=" . $novoEndereco .
-					", numeroEndereco=" . $novoNumeroEndereco . ", complementoEndereco=" . $novoComplementoEndereco .
-					" WHERE cpf=". $cpf;
 
+		try{
+			$sql = "UPDATE " . $this->nometabela . " SET cep='" . $novoCep . "', endereco='" . $novoEndereco .
+					"', numeroEndereco='" . $novoNumeroEndereco . "', complementoEndereco='" . $novoComplementoEndereco .
+					"' WHERE cpf='". $cpf . "';";
 
 			if($this->db->exec($sql)) {
 				return true;

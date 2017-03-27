@@ -197,8 +197,10 @@ class Controller {
 	}
 
 	public function alterar_endereco() {
+		session_start("paradisepies");
+
 		if (isset($_POST['submit'])) {
-			$cidade = $_POST['cidade'];
+			$cidade = $_POST['city'];
 			$cep = $_POST['cep'];
 			$endereco = $_POST['end'];
 			$numeroEndereco = $_POST['n'];
@@ -209,16 +211,9 @@ class Controller {
 				if ($cep == "" || $endereco == "" || $numeroEndereco == "")
 					throw new Exception('Erro');
 
-				if ($complementoEndereco == "") {
-					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco,
-							null);
-				} else {
-					$result = $this->usuarioFactory->alterar_endereco($cpf, $cidade, $cep, $endereco, $numeroEndereco,
-							$complementoEndereco);
-				}
+				$sucesso = $this->usuarioFactory->alterar_endereco($_SESSION["id_usuario"], $cep, $endereco, $numeroEndereco, $complementoEndereco);
 
-
-				if(!$result) {
+				if(!$sucesso) {
 					$msg = "Não foi possível alterar seu endereço, tente novamente!";
 					require'view/mensagem.php';
 				}
