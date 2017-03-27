@@ -65,12 +65,27 @@ class Controller {
 				$this->finalizar_pedido();
 				break;
 
+			case 'acompanharPedido':
+				$this->acompanharPedido();
+
+			case 'encomende':
+				$this->encomende();
+				break;
+
 			default:
 		        $this->index();
 		        break;
 		}
 	}
 
+	public function encomende()	{
+		require 'view/encomende.html';
+	}
+
+	public function acompanharPedido()	{
+		require 'view/acompanharPedido.html';
+	}
+	
 	public function index()	{
 		require 'view/index.html';
 	}
