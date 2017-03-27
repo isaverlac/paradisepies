@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS paradisepies.TB_Usuario(
 );
 
 CREATE TABLE IF NOT EXISTS paradisepies.TB_UsuarioFazPedido(
-    cpfCliente VARCHAR(13) NOT NULL,
+    cpfCliente VARCHAR(14) NOT NULL,
     idPedidoFeito NUMERIC(3) NOT NULL,
 
     FOREIGN KEY(cpfCliente) REFERENCES paradisepies.TB_usuario(cpf),
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS paradisepies.TB_Pedido(
 CREATE TABLE IF NOT EXISTS paradisepies.TB_ItemPedido(
     idTorta INTEGER NOT NULL,
     idPedido NUMERIC (5) NOT NULL,
+    quantidade NUMERIC NOT NULL,
     FOREIGN KEY(idTorta) REFERENCES paradisepies.TB_torta(idTorta),
     FOREIGN KEY(idPedido) REFERENCES paradisepies.TB_pedido(idPedido)
 );

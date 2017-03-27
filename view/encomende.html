@@ -6,7 +6,7 @@
 	<title>Paradise Pies</title>
 	
 	<link rel="shortcut icon" href="view/Imagens/favicon.png">
-	<link rel="stylesheet" media="screen" href="/view/style.css?v=8may2013">
+	<link rel="stylesheet" media="screen" href="view/style.css?v=8may2013">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 
@@ -42,14 +42,6 @@
 	  });
 	});
 	</script>
-	
-	
-	<script>
-	function msg() {
-		alert("Encomenda Realizada!");
-	}
-	</script>
-	
 	
 	<script>
 			$(document).ready(function() {
@@ -115,18 +107,6 @@
 			  <option value="t1">#03 - Torta de Brigadeiro Preto e Branco</option>
 			</select>
 			
-			<br><br>
-			
-			<label for="tamanho">Tamanho:</label>
-			<select id="tamanho" name="tamanho">
-			  <option value="tam">Selecione</option>
-			  <option value="p">Pequena</option>
-			  <option value="m">Média</option>
-			  <option value="g">Grande</option>
-			</select>
-			
-			<br><br>
-			
 			<label for="quantidade">Quantidade:</label>
 			<select id="quantidade" name="quantidade">
 			  <option value="01">01</option>
@@ -136,7 +116,6 @@
 		   
 		   <br><br>
 		    
-			
 			<label for="entrega">Entrega:</label>
 			<select id="entrega" name="entrega">
 			  <option value="local">Retirar no Local</option>
@@ -145,7 +124,7 @@
 		   
 		   <br><br>
 		    
-			<button type="submit" value="Encomendar">Inserir no Carrinho</button>
+			<button type="submit" name="submit" value="Encomendar">Inserir no Carrinho</button>
 		   
 			<button type="reset">Resetar</button>
 		  

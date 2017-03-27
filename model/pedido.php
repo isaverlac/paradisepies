@@ -6,11 +6,11 @@ Class Pedido {
 	private $dataEntrega;
 	private $status;
 	private $precoTotal;
-	private $usuario;
+	private $idUsuario;
 	private $listaDeTortas;
 	
-	public function __construct($obj) {
-		$this->usuario = $obj;
+	public function __construct($cpf) {
+		$this->idUsuario = $cpf;
 		$this->$idPedido = this->gerarId();
 		$this->$listaDeTortas = new ArrayObject();
 	}
@@ -26,6 +26,10 @@ Class Pedido {
 
 	public function getIdPedido() {
 		return $this->$idPedido;
+	}
+	
+	public function getIdUsuario() {
+		return $this->$idUsuario;
 	}
 
 	public function getDataEntrega() {

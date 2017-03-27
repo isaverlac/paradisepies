@@ -2,9 +2,6 @@
 require_once("AbstractFactory.php");
 
 class PedidoFactory extends Abstprivate {
-	private $nometabela = "TB_Pedido";
-	private $campos = "idPedido, dataEntrega, status, precoTotal"
-
 	public function __construct() {
 		$this->AbstractFactory();
 	}
@@ -13,13 +10,20 @@ class PedidoFactory extends Abstprivate {
 		$pedido = $obj;
 	
 		try {
-			$sql = "INSERT INTO" . $this->$nometabela . "(" $this.campos . ") VALUES (" .
-					$pedido.gerarId() . "," . $pedido.getDataEntrega() . "," . $pedido.getStatus() . "," .
+			$sql = "INSERT INTO paradisepies.TB_Pedido (idPedido, dataEntrega, status, precoTotal) VALUES (" .
+					$pedido->getIdPedido() . "," . $pedido->getDataEntrega() . ", '" . $pedido->getStatus() . "' ," . 
+					$pedido->getPrecoTotal() . ";";
 
-		} catch (Exception $e) {
-			
-		}
-		
+			$sql2 = "INSERT INTO paradisepies.TB_UsuarioFazPedido (cpfCliente, idPedidoFeito) VALUES ('" . $pedido->getIdUsuario() . "',"$pedido->getIdPedido() . ";"; 
+			;
+
+			$sql3 = "INSERT INTO paradisepies.TB_ItemPedido (idTorta , idPedido) VALUES (" .  . "," . $pedido->getIdPedido() . ";" 
+			;
+
+		} catch (PDOException $exc) {
+      		echo $exc->getMessage();
+      		$result = false;
+    	}		
 	}
 }
 
