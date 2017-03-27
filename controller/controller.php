@@ -41,6 +41,10 @@ class Controller {
 				$this->perfil();
 				break;
 
+			case 'perfil2':
+				$this->perfil2();
+				break;
+
 			case 'alterar_dados':
 				$this->alterar_dados();
 				break;
@@ -117,6 +121,11 @@ class Controller {
 
 	public function perfil() {
 		require 'view/perfil.html';
+	}
+	public function perfil2() {
+		session_start("paradisepies");
+		require 'view/perfil.html';
+
 	}
 
 	public function cadastra_usuario() {

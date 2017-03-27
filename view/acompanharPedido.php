@@ -122,7 +122,7 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 
 <div id="sticky-anchor"></div>
 <nav>
-	<a href="/paradisepies?op=index"> Voltar ao Início </a>
+	<a href="/paradisepies?op=perfil2"> Voltar ao Início </a>
 
 </nav>
 
