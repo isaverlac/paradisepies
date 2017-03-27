@@ -3,9 +3,11 @@ require_once("usuario.php");
 
 Class Pedido {
 	private $idPedido;
+	private $dataPedido;
 	private $dataEntrega;
 	private $status;
 	private $precoTotal;
+	private $quantidade;
 	private $idUsuario;
 	private $listaDeTortas;
 	private $listaDeQuantidadeDeTortas;
@@ -15,7 +17,9 @@ Class Pedido {
 		$this->idPedido = $this->gerarId();
 		$this->listaDeTortas = new ArrayObject();
 		$this->status = "Em produção";
+		$this->dataPedido = "0000-00-00";
 		$this->dataEntrega = "0000-00-00";
+		$this->quantidade = 0;
 		$this->listaDeQuantidadeDeTortas = new ArrayObject();
 	}
 
@@ -31,6 +35,9 @@ Class Pedido {
 
 	public function getIdPedido() {
 		return $this->idPedido;
+	}
+	public function getQuantidade() {
+		return $this->quantidade;
 	}
 
 	public function getIdUsuario() {

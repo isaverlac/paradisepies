@@ -88,6 +88,18 @@ class Controller {
 	}
 
 	public function acompanharPedido()	{
+		session_start("paradisepies");
+		$result = $this->pedidoFactory->buscar($_SESSION["id_usuario"]);
+		$nPedidos = count($result);
+		for($i=0; $i<$nPedidos; $i++)
+		{
+			$dataPedido[$i] = $result[$i][1];
+			$dataEntrega[$i] = $result[$i][2];
+			$pedido[$i] = $result[$i][3];
+			$quantidade[$i] = $result[$i][4];
+			$status[$i] = $result[$i][5];
+		}
+	
 		require 'view/acompanharPedido.html';
 	}
 
@@ -337,7 +349,7 @@ class Controller {
 			$idTorta = $_POST['torta'];
 			$quantidade = $_POST['quantidade'];
 			$entrega = $_POST['entrega'];
-			$sucerro = false;
+			$sucesso = false;
 
 			try {
 				if($idTorta == "")

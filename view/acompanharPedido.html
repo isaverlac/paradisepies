@@ -130,11 +130,8 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 
 	<div class="caixa">
 		
-			<h1>Acompanhe seus Pedidos!</h1>
-			
-			
+			<h1>Acompanhe seus Pedidos!</h1>			
 			<table> 
-     
 			<tr>
 			  <th>Número</th>
 			  <th>Pedido</th>
@@ -142,28 +139,19 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 			  <th>Data do Pedido</th>
 			  <th>Prazo de Entrega</th>
 			  <th>Status</th>
-			  <th>Avaliação</th>
 			</tr>
 			
+			<?php for($i=0; $i<$nPedidos; $i++)
+			{ ?>
 			<tr>
-			  <td>01</td>
-			  <td>#02 - Torta de Brigadeiro de Leite Ninho</td>
-			  <td>01</td>
-			  <td>08/02/2017</td>
-			  <td>10/02/2017</td>
-			  <td>Em Produção</td>
-			  <td>Indisponível</td>
+			  <td><?= $i+1 ?></td>
+			  <td><?= $pedido[$i] ?></td>
+			  <td><?= $quantidade[$i] ?></td>
+			  <td><?= $dataPedido[$i] ?></td>
+			  <td><?= $dataEntrega[$i] ?></td>
+			  <td><?= $status[$i] ?></td>
 			</tr>
-			
-			<tr>
-			  <td>02</td>
-			  <td>#01 - Torta de Brigadeiro Preto e Morangos</td>
-			  <td>01</td>
-			  <td>08/02/2017</td>
-			  <td>10/02/2017</td>
-			  <td>Entregue</td>
-			  <td><a href="#?w=405" rel="pop" class="poplight">Realizada</a></td>
-			</tr>
+			<?php }	?>
 			
 			  </table>
   

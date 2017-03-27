@@ -75,7 +75,20 @@ public function __construct() {
             $ref = new ReflectionClass($nameObject);
             $list[] = $ref->newInstanceArgs($row);
         }
+        var_dump($ref);
         return $list;
+    }
+
+    protected function queryListToRow
+            (PDOStatement $result)
+    {
+        $list = array();
+        $result = $result->fetchAll(PDO::FETCH_NUM);
+        foreach ($result as $row) {
+            array_push($list, $row);
+        }
+        return $list;
+
     }
 
 }

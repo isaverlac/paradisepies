@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS paradisepies.TB_UsuarioFazPedido(
 
 CREATE TABLE IF NOT EXISTS paradisepies.TB_Pedido(
     idPedido NUMERIC(5) NOT NULL,
+    dataPedido DATE NOT NULL,
     dataEntrega DATE NOT NULL,
     status VARCHAR(15) NOT NULL,
     precoTotal REAL NOT NULL,
