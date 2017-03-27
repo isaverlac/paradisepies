@@ -21,7 +21,6 @@ class PedidoFactory extends AbstractFactory {
       		echo $exc->getMessage();
       		$result = null;
     	}
-    	var_dump($resultPDOstmt);
     	return $resultObject;
 
 
