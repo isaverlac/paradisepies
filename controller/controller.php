@@ -248,6 +248,8 @@ class Controller {
 	}
 
 	public function alterar_email() {
+		session_start("paradisepies");
+
 		if(isset($_POST['submit'])) {
 			$email = $_POST['email'];
 			$result = false;
@@ -256,9 +258,9 @@ class Controller {
 				if($email == "" )
 					throw new Exception('Erro');
 
-				$result = $this->usuarioFactory->alterar_senha($cpf, $email);
+				$sucesso = $this->usuarioFactory->alterar_email($_SESSION["id_usuario"], $email);
 
-				if(!$result) {
+				if(!$sucesso) {
 					$msg = "Não foi possível alterar seu e-mail, tente novamente!";
 					require'view/mensagem.php';
 				}
@@ -268,7 +270,7 @@ class Controller {
 				}
 
 				unset($email);
-                unset($senha);
+        unset($senha);
 
 			} catch (Exception $e) {
 				if ($email == "") {
@@ -280,7 +282,10 @@ class Controller {
 	}
 
 	public function alterar_senha() {
+		session_start("paradisepies");
+
 		if(isset($_POST['submit'])) {
+
 			$senha = $_POST['senha'];
 			$result = false;
 
@@ -288,9 +293,9 @@ class Controller {
 				if($senha == "" )
 					throw new Exception('Erro');
 
-				$result = $this->usuarioFactory->alterar_senha($cpf, $senha);
+				$sucesso = $this->usuarioFactory->alterar_senha($_SESSION["id_usuario"], $senha);
 
-				if(!$result) {
+				if(!$sucesso) {
 					$msg = "Não foi possível alterar sua senha, tente novamente!";
 					require'view/mensagem.php';
 				}
@@ -300,7 +305,7 @@ class Controller {
 				}
 
 				unset($email);
-                unset($senha);
+        unset($senha);
 
 			} catch (Exception $e) {
 				if ($senha == "") {

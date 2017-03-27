@@ -59,7 +59,7 @@ class UsuarioFactory extends AbstractFactory {
 	}
 
 	public function login($email, $senha) {
-		
+
 		$sql = "SELECT * FROM " . $this->nometabela . " WHERE email='" . $email . "' AND senha= '" . $senha . "';";
 		$resultObject = null;
 
@@ -74,10 +74,10 @@ class UsuarioFactory extends AbstractFactory {
     	return $resultObject;
 	}
 
-	public function alterarEmail($cpf, $email) {
+	public function alterar_email($cpf, $email) {
 		$novoEmail = $email;
 		try{
-			$sql = "UPDATE" . $this->nometabela . "SET email =". $novoEmail . ", WHERE" . $this->getCpf() ." = " . $cpf;
+			$sql = "UPDATE " . $this->nometabela . " SET email = '". $novoEmail . "' WHERE cpf = '" . $cpf . "';";
 
 			if($this->db->exec($sql)) {
 				return true;
@@ -91,10 +91,10 @@ class UsuarioFactory extends AbstractFactory {
     	}
 	}
 
-	public function alterarSenha($cpf, $senha) {
+	public function alterar_senha($cpf, $senha) {
 		$novoSenha = $senha;
 		try{
-			$sql = "UPDATE" . $this->nometabela . "SET senha =". $novoSenha .", WHERE" . $this->getCpf() ." = " . $cpf;
+			$sql = "UPDATE " . $this->nometabela . " SET senha ='". $novoSenha ."' WHERE cpf='" . $cpf . "';";
 
 			if($this->db->exec($sql)) {
 				return true;
@@ -114,7 +114,7 @@ class UsuarioFactory extends AbstractFactory {
 		$novoNumeroEndereco = $numeroEndereco;
 		$novoComplementoEndereco = $complementoEndereco;
 		try{
-			$sql = "UPDATE" . $this->nometabela . "SET cep=" . $novoCep . ", endereco=" . $novoEndereco .
+			$sql = "UPDATE " . $this->nometabela . " SET cep=" . $novoCep . ", endereco=" . $novoEndereco .
 					", numeroEndereco=" . $novoNumeroEndereco . ", complementoEndereco=" . $novoComplementoEndereco .
 					" WHERE cpf=". $cpf;
 

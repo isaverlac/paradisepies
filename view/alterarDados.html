@@ -87,27 +87,27 @@
 
 	<div class="caixa">
 
-		<form action="/paradisepies?op=alterar_email" method="post">
+		<form action="?op=alterar_email" method="post">
 
 			<h1>Altere seu e-mail</h1>
 
 			<label for="email">Email:</label>
 			<input type="email" id="email" name="email" placeholder="name@name.com.br">
 
-			<button type="submit" value="Alterar" class="botaoAlterar">OK</button>
+			<button type="submit" value="Alterar" class="botaoAlterar" name="submit">OK</button>
 
 			<button type="reset" class="botaoAlterar">Resetar</button>
 
 		</form>
 
-		<form action="/paradisepies?op=alterar_senha" method="post">
+		<form action="?op=alterar_senha" method="post">
 
 			<h1>Altere sua senha</h1>
 
 			<label for="senha">Digite sua senha:</label>
 			<input type="password" id="senha" name="senha" placeholder="password" required />
 
-			<button type="submit" value="Alterar" class="botaoAlterar">OK</button>
+			<button type="submit" value="Alterar" class="botaoAlterar" name="submit">OK</button>
 
 			<button type="reset" class="botaoAlterar">Resetar</button>
 
