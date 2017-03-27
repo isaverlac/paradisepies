@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Paradise Pies</title>
-	
+
 	<link rel="shortcut icon" href="view/Imagens/favicon.png">
 	<link rel="stylesheet" media="screen" href="view/style.css?v=8may2013">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
@@ -12,10 +12,10 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Isabela Andrade">
-	<meta name="robots" content="all">	
-	
+	<meta name="robots" content="all">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	
+
 	<script>
 	$(document).ready(function(){
 	  // Add smooth scrolling to all links
@@ -34,7 +34,7 @@
 		  $('html, body').animate({
 			scrollTop: $(hash).offset().top
 		  }, 800, function(){
-	   
+
 			// Add hash (#) to URL when done scrolling (default click behavior)
 			window.location.hash = hash;
 		  });
@@ -42,14 +42,14 @@
 	  });
 	});
 	</script>
-	
+
 	<script>
 			$(document).ready(function() {
-  
+
 			  $(window).scroll(function () {
 				  //if you hard code, then use console
-				  //.log to determine when you want the 
-				  //nav bar to stick.  
+				  //.log to determine when you want the
+				  //nav bar to stick.
 				  console.log($(window).scrollTop())
 				if ($(window).scrollTop() > 210) {
 				  $('nav').addClass('navbar-fixed');
@@ -77,14 +77,14 @@
 
 	<div class="caixa">
 		<h1>Encomende</h1>
-				
+
 		<div class="e">
-		
-			Você quer encomendar uma torta? Preencha o formulário abaixo e seu pedido será feito! Você receberá, no seu e-mail, um link para pagamento. 
+
+			Você quer encomendar uma torta? Preencha o formulário abaixo e seu pedido será feito! Você receberá, no seu e-mail, um link para pagamento.
 			Quando o seu pagamento for confirmado, você receberá um recibo.
-			
+
 			<h2>Formas de Pagamento</h2>
-			
+
 			<img src="view/Pagamentos/boleto.png" title="Boleto Bancário" alt="Boleto Bancário"/>
 			<img src="view/Pagamentos/visa.png" title="Cartão de Crédito Visa" alt="Cartão de Crédito Visa"/>
 			<img src="view/Pagamentos/mastercard.png" title="Cartão de Crédito Mastercard" alt="Cartão de Crédito Mastercard"/>
@@ -92,93 +92,95 @@
 			<img src="view/Pagamentos/paypal.png" title="Paypal" alt="Paypal"/>
 			<img src="view/Pagamentos/pagseguro.png" title="PagSeguro" alt="PagSeguro"/>
 			<img src="view/Pagamentos/bancodobrasil.png" title="Transferência Bancária" alt="Transferência Bancária" />
-			
+
 		</div>
-		
-		<form>
+
+		<form method="post" action="?op=fazer_pedido">
 
 			<h2>Preencha seu pedido</h2>
-			
+
 			<label for="torta">Torta:</label>
 			<select id="torta" name="torta">
 			  <option value="torta">Selecione</option>
 			  <option value="t1">#01 - Torta de Brigadeiro Preto e Morangos</option>
-			  <option value="t1">#02 - Torta de Brigadeiro de Leite Ninho</option>
-			  <option value="t1">#03 - Torta de Brigadeiro Preto e Branco</option>
+			  <option value="t2">#02 - Torta de Brigadeiro de Leite Ninho</option>
+			  <option value="t3">#03 - Torta de Brigadeiro Preto e Branco</option>
 			</select>
-			
+
+			<br><br>
+
 			<label for="quantidade">Quantidade:</label>
 			<select id="quantidade" name="quantidade">
 			  <option value="01">01</option>
 			  <option value="02">02</option>
 			  <option value="03">03</option>
 			</select>
-		   
+
 		   <br><br>
-		    
+
 			<label for="entrega">Entrega:</label>
 			<select id="entrega" name="entrega">
 			  <option value="local">Retirar no Local</option>
 			  <option value="taxa">Entregar no Endereço Citado</option>
 			</select>
-		   
+
 		   <br><br>
-		    
+
 			<button type="submit" name="submit" value="Encomendar">Inserir no Carrinho</button>
-		   
+
 			<button type="reset">Resetar</button>
-		  
+
 		</form>
-			
+
 	</div>
 
 	<footer>
-	
+
 			<div class="rs">
 				<h2>Onde nos encontrar</h2>
 
-			
+
 					<a href="https://www.facebook.com/paradisepie/"> <img src="view/Social/facebook.png" alt="facebook"/> curta nossa página </a>
 					<a href="https://www.instagram.com/paradise.pies/"> <img src="view/Social/instagram.png" alt="instagram"/> nos siga no instagram  </a>
-					
+
 					<br>
-					 
-					 <img src="view/Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS 
-					 
+
+					 <img src="view/Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS
+
 					 <br>
-					 
-					 <img src="view/Social/email.png" alt="Email"/> paradisepies@gmail.com 
-			
-				
+
+					 <img src="view/Social/email.png" alt="Email"/> paradisepies@gmail.com
+
+
 			</div>
-			
+
 			<div class="me">
-			
+
 			<h2>Sobre Mim</h2>
-			
+
 			<div class="caixaSobreMim">
-			  
-			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/> 
-			  
+
+			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/>
+
 			  Meu nome é Isabela, tenho 20 anos. Sou apaixonada por doces e por web design. Faço ambos com muito carinho, gosto de agradar as pessoas com as
-			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá 
-			  
+			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá
+
 			</div>
-			
-		
-			
+
+
+
 			<a href="https://www.facebook.com/isaverlac/"><img src="view/Social/facebook.png" alt="facebook"/></a>
 			<a href="https://twitter.com/isaverlac"><img src="view/Social/instagram.png" alt="instagram"/></a>
 			<a href="https://www.instagram.com/isaverlac/"><img src="view/Social/twitter.png" alt="twitter"/></a>
 			<a href="https://city0fglass.tumblr.com"><img src="view/Social/tumblr.png" alt="tumblr"/></a>
-			
+
 			</div>
-	
+
 		<div class="disclaimer">
 			Layout inteiramente desenvolvido por Isabela Andrade Souza. Todos os direitos reservados. <br>
 		Plágio é crime de acordo com a Lei Federal dos direitos autorais n°9610.
 		</div>
-		
+
 	</footer>
 </div>
 

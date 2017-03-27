@@ -2,15 +2,19 @@
 
 require_once("model/usuario.php");
 require_once("model/UsuarioFactory.php");
-#require_once("model/pedido.php");
-#require_once("model/PedidoFactory.php");
+require_once("model/pedido.php");
+require_once("model/PedidoFactory.php");
+require_once("model/TortaFactory.php");
+
 class Controller {
 	private $usuarioFactory;
 	private $pedidoFactory;
+	private $tortaFactory;
 
 	public function __construct() 	{
-		$this->usuarioFactory = new usuarioFactory();
-#		$this->pedidoFactory = new PedidoFactory();
+		$this->usuarioFactory = new UsuarioFactory();
+		$this->pedidoFactory = new PedidoFactory();
+		$this->tortaFactory = new TortaFactory();
 
 		ini_set('error_reporting', E_ALL);
         ini_set('display_errors', 1);
@@ -67,6 +71,7 @@ class Controller {
 
 			case 'acompanharPedido':
 				$this->acompanharPedido();
+				break;
 
 			case 'encomende':
 				$this->encomende();
@@ -85,7 +90,7 @@ class Controller {
 	public function acompanharPedido()	{
 		require 'view/acompanharPedido.html';
 	}
-	
+
 	public function index()	{
 		require 'view/index.html';
 	}
@@ -135,7 +140,6 @@ class Controller {
 
 				if ($sucesso) {
                     $msg = "<p>O usu&aacute;rio " . $nome . " (" . $email . ") foi cadastrado com sucesso!</p>";
-                    require 'view/mensagem.php';
                 } else {
                     $msg = "<p>O usu&aacute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
                 }
@@ -327,25 +331,36 @@ class Controller {
 	}
 
 	public function fazer_pedido() {
-		require'view/'; #pag de fazer o pedido
-	}
+		session_start("paradisepies");
 
-	public function adicionar_torta() {
 		if (isset($_POST['submit'])) {
-			$torta = $_POST['torta'];
-			$preco = $_POST['preco'];
+			$idTorta = $_POST['torta'];
+			$quantidade = $_POST['quantidade'];
+			$entrega = $_POST['entrega'];
 			$sucerro = false;
 
 			try {
-				if($torta == "" || $preco == "")
+				if($idTorta == "")
 					throw new Exception('Erro');
 
+					$pedido = new Pedido($_SESSION["id_usuario"]);
+					$torta = $this->tortaFactory->buscar($idTorta);
+					$pedido->addTorta($torta[0], $quantidade);
+
+					$sucesso = $this->pedidoFactory->salvar($pedido);
+
+					if(!$sucesso) {
+						$msg = "Não foi possível salvar seu pedido";
+						require'view/mensagem.php';
+					}
+					else {
+						$msg = "Pedido gravado com sucesso!";
+						require'view/mensagem.php';
+					}
 
 			} catch (Exception $e) {
 				if ($torta == "" ) {
                     $msg = "O campo <strong>Torta</strong> deve ser preenchido!";
-                } else if($preco == "") {
-                	 $msg = "O campo <strong>Preço</strong> deve ser preenchido!";
                 }
                 require 'view/mensagem.php';
 			}
