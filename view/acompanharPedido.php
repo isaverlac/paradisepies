@@ -1,3 +1,13 @@
+<!--
+ * Arquivo .php do projeto Paradise Pies, de uso exclusivo.
+ * Não serão permitidas cópias.
+ * @author Isabela Andrade Souza
+ * @author Luiz Henrique Cavalcante da Silva
+
+
+Página para acompanhamento de pedidos.
+-->
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -13,12 +23,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Isabela Andrade">
 	<meta name="robots" content="all">
-	
+		
+	<!-- códigos javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	
 	<script>
 	$(document).ready(function(){
-	  // Add smooth scrolling to all links
+	  // Smooth Scrolling
 	  $("a").on('click', function(event) {
 
 		// Make sure this.hash has a value before overriding default behavior
@@ -42,14 +53,6 @@
 	  });
 	});
 	</script>
-	
-	
-	<script>
-	function msg() {
-		alert("Encomenda Realizada!");
-	}
-	</script>
-	
 	
 	<script>
 			$(document).ready(function() {
@@ -116,19 +119,26 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 
 <body>
 
+<!-- Identificador de âncora -->
 <span id="inicio"> </span>
 
+<!-- Inserindo header -->
 <header></header>
 
+<!-- navegação + barra fixa na rolagem -->
 <div id="sticky-anchor"></div>
 <nav>
 	<a href="/paradisepies?op=perfil2"> Voltar ao Início </a>
 
 </nav>
 
+
+
+<!-- blocos de conteúdo -->
 <div class="caixas">
 
-	<div class="caixa">
+	<!-- caixa de conteúdo individual -->
+	<div class="caixas">
 		
 			<h1>Acompanhe seus Pedidos!</h1>			
 			<table> 
@@ -157,7 +167,8 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
   
 			
 	</div>
-	
+
+	<!-- inserindo rodapé -->
 	<footer>
 	
 			<div class="rs">
@@ -169,7 +180,7 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 					
 					<br>
 					 
-					 <img src="view/Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS 
+					 <img src="view/Social/home.png" alt="Endereço"/> Av. Costa e Silva, s/n - Cidade Universitária, Campo Grande - MS
 					 
 					 <br>
 					 
@@ -180,22 +191,23 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 			
 			<div class="me">
 			
-			<h2>Sobre Mim</h2>
+			<h2>Sobre os Criadores </h2>
 			
 			<div class="caixaSobreMim">
 			  
-			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/> 
+			  <img src="view/Imagens/facom.png" class="portrait" alt="Sobre Mim"/> 
 			  
-			  Meu nome é Isabela, tenho 20 anos. Sou apaixonada por doces e por web design. Faço ambos com muito carinho, gosto de agradar as pessoas com as
-			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá 
+			  Flávio Augusto, Isabela Andrade e Luiz Henrique são alunos de computação da Universidade Federal de Mato Grosso do Sul. 
+			  O "Paradise Pies" surgiu como projeto para a matéria Programação Web, no início do ano de 2017. 
+			  Toda a codificação foi feita pelos alunos, com ajuda do graduando em Ciência da Computação Yan Uehara. 
 			  
 			</div>
 			
 		
 			
-			<a href="https://www.facebook.com/isaverlac/"><img src="view/Social/facebook.png" alt="facebook"/></a>
-			<a href="https://twitter.com/isaverlac"><img src="view/Social/instagram.png" alt="instagram"/></a>
-			<a href="https://www.instagram.com/isaverlac/"><img src="view/Social/twitter.png" alt="twitter"/></a>
+			<a href="https://www.facebook.com/"><img src="view/Social/facebook.png" alt="facebook"/></a>
+			<a href="https://twitter.com/"><img src="view/Social/instagram.png" alt="instagram"/></a>
+			<a href="https://www.instagram.com/"><img src="view/Social/twitter.png" alt="twitter"/></a>
 			<a href="https://city0fglass.tumblr.com"><img src="view/Social/tumblr.png" alt="tumblr"/></a>
 			
 			</div>
@@ -206,37 +218,6 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 		</div>
 		
 	</footer>
-</div>
-
-
-<div id="pop" class="popup_block">
-
-<h2>Avaliação do Pedido <strong>02</strong></h2>
-	
-		<form>
-		
-		<label for="entrega">Nota:</label>
-		
-			<input type="radio" name="nota5" value="5" checked> 5
-			<input type="radio" name="nota4" value="4"> 4
-			<input type="radio" name="nota3" value="3"> 3
-			<input type="radio" name="nota2" value="2"> 2
-			<input type="radio" name="nota1" value="1"> 1
-		   
-		   <br><br>
-			
-			<label for="msg">Mensagem Opcional:</label> <br>
-				<textarea id="msg" name="msg" rows="4" cols="64" placeholder="Digite sua mensagem">
-					
-				</textarea>
-				
-				<br><br>
-				
-					<button type="submit" value="Enviar">Enviar</button>
-					<button type="reset" value="Cancelar">Resetar</button>
-			</form>		
-						
-
 </div>
 
 </body>

@@ -1,3 +1,12 @@
+<!--
+ * Arquivo .php do projeto Paradise Pies, de uso exclusivo.
+ * Não serão permitidas cópias.
+ * @author Isabela Andrade Souza
+ * @author Flávio Augusto Muller Shinzato
+
+Página de mensagens mostradas ao usuário.
+-->
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -15,12 +24,13 @@
 	<meta name="robots" content="all">
 
 	
+	<!-- códigos javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	
 	<script>
 	$(document).ready(function(){
-	  // Add smooth scrolling to all links
+	  // Smooth Scrolling
 	  $("a").on('click', function(event) {
 
 		// Make sure this.hash has a value before overriding default behavior
@@ -112,20 +122,26 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
 <body>
 
+<!-- Identificador de âncora -->
 <span id="inicio"> </span>
 
+<!-- Inserindo header -->
 <header></header>
 
+<!-- navegação + barra fixa na rolagem -->
 <div id="sticky-anchor"></div>
 <nav>
 	<a href="/paradisepies?op=cadastroUsuario"> Voltar </a>
 </nav>
 
 
+<!-- blocos de conteúdo -->
 <div class="caixas">
 
-	<div class="caixa">
+	<!-- caixa de conteúdo individual -->
+	<div class="caixas">
 		
+		<!-- mensagens de erro/sucesso mostradas ao usuário, vindas do controller -->
 		<?php
 	      if($sucesso)
 		echo $msg;
@@ -136,6 +152,7 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	</div>
 	
 
+	<!-- inserindo rodapé -->
 	<footer>
 	
 			<div class="rs">
@@ -147,7 +164,7 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 					
 					<br>
 					 
-					 <img src="view/Social/home.png" alt="Endereço"/> Rua 13 de Maio, 1220, Campo Grande - MS 
+					 <img src="view/Social/home.png" alt="Endereço"/> Av. Costa e Silva, s/n - Cidade Universitária, Campo Grande - MS
 					 
 					 <br>
 					 
@@ -158,22 +175,23 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 			
 			<div class="me">
 			
-			<h2>Sobre Mim</h2>
+			<h2>Sobre os Criadores </h2>
 			
 			<div class="caixaSobreMim">
 			  
-			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/> 
+			  <img src="view/Imagens/facom.png" class="portrait" alt="Sobre Mim"/> 
 			  
-			  Meu nome é Isabela, tenho 20 anos. Sou apaixonada por doces e por web design. Faço ambos com muito carinho, gosto de agradar as pessoas com as
-			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá 
+			 Flávio Augusto, Isabela Andrade e Luiz Henrique são alunos de computação da Universidade Federal de Mato Grosso do Sul.
+			 O "Paradise Pies" surgiu como projeto para a matéria Programação Web, no início do ano de 2017. 
+			 Toda a codificação foi feita pelos alunos, com ajuda do graduando em Ciência da Computação Yan Uehara.
 			  
 			</div>
 			
 		
 			
-			<a href="https://www.facebook.com/isaverlac/"><img src="view/Social/facebook.png" alt="facebook"/></a>
-			<a href="https://twitter.com/isaverlac"><img src="view/Social/instagram.png" alt="instagram"/></a>
-			<a href="https://www.instagram.com/isaverlac/"><img src="view/Social/twitter.png" alt="twitter"/></a>
+			<a href="https://www.facebook.com/"><img src="view/Social/facebook.png" alt="facebook"/></a>
+			<a href="https://twitter.com/"><img src="view/Social/instagram.png" alt="instagram"/></a>
+			<a href="https://www.instagram.com/"><img src="view/Social/twitter.png" alt="twitter"/></a>
 			<a href="https://city0fglass.tumblr.com"><img src="view/Social/tumblr.png" alt="tumblr"/></a>
 			
 			</div>

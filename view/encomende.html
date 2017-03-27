@@ -1,3 +1,12 @@
+<!--
+ * Arquivo .html do projeto Paradise Pies, de uso exclusivo.
+ * Não serão permitidas cópias.
+ * @author Isabela Andrade Souza
+
+
+Página de encomenda.
+-->
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -14,11 +23,12 @@
 	<meta name="author" content="Isabela Andrade">
 	<meta name="robots" content="all">
 
+<!-- códigos javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<script>
 	$(document).ready(function(){
-	  // Add smooth scrolling to all links
+	  // Smooth Scrolling
 	  $("a").on('click', function(event) {
 
 		// Make sure this.hash has a value before overriding default behavior
@@ -64,8 +74,10 @@
 
 <body>
 
+<!-- Inserindo header -->
 <header></header>
 
+<!-- navegação + barra fixa na rolagem -->
 <div id="sticky-anchor"></div>
 <nav>
 	<a href="/paradisepies?op=perfil2"> Voltar ao Início </a>
@@ -73,9 +85,10 @@
 </nav>
 
 
+<!-- blocos de conteúdo -->
 <div class="caixas">
 
-	<div class="caixa">
+	<!-- caixa de conteúdo individual --><div class="caixas">
 		<h1>Encomende</h1>
 
 		<div class="e">
@@ -86,15 +99,12 @@
 			<h2>Formas de Pagamento</h2>
 
 			<img src="view/Pagamentos/boleto.png" title="Boleto Bancário" alt="Boleto Bancário"/>
-			<img src="view/Pagamentos/visa.png" title="Cartão de Crédito Visa" alt="Cartão de Crédito Visa"/>
-			<img src="view/Pagamentos/mastercard.png" title="Cartão de Crédito Mastercard" alt="Cartão de Crédito Mastercard"/>
-			<img src="view/Pagamentos/elo.png" title="Cartão de Crédito Elo" alt="Cartão de Crédito Elo"/>
 			<img src="view/Pagamentos/paypal.png" title="Paypal" alt="Paypal"/>
 			<img src="view/Pagamentos/pagseguro.png" title="PagSeguro" alt="PagSeguro"/>
-			<img src="view/Pagamentos/bancodobrasil.png" title="Transferência Bancária" alt="Transferência Bancária" />
 
 		</div>
 
+		<!-- formulário de encomenda -->
 		<form method="post" action="?op=fazer_pedido">
 
 			<h2>Preencha seu pedido</h2>
@@ -134,6 +144,7 @@
 
 	</div>
 
+	<!-- inserindo rodapé -->
 	<footer>
 
 			<div class="rs">
@@ -156,22 +167,23 @@
 
 			<div class="me">
 
-			<h2>Sobre Mim</h2>
+			<h2>Sobre os Criadores </h2>
 
 			<div class="caixaSobreMim">
 
-			  <img src="view/Imagens/me.jpg" class="portrait" alt="Sobre Mim"/>
+			  <img src="view/Imagens/facom.png" class="portrait" alt="Sobre Mim"/>
 
-			  Meu nome é Isabela, tenho 20 anos. Sou apaixonada por doces e por web design. Faço ambos com muito carinho, gosto de agradar as pessoas com as
-			  coisas que eu sou boa. Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá Blá
-
+			 Flávio Augusto, Isabela Andrade e Luiz Henrique são alunos de computação da Universidade Federal de Mato Grosso do Sul.
+			 O "Paradise Pies" surgiu como projeto para a matéria Programação Web, no início do ano de 2017. 
+			 Toda a codificação foi feita pelos alunos, com ajuda do graduando em Ciência da Computação Yan Uehara.
+			 
 			</div>
 
 
 
-			<a href="https://www.facebook.com/isaverlac/"><img src="view/Social/facebook.png" alt="facebook"/></a>
-			<a href="https://twitter.com/isaverlac"><img src="view/Social/instagram.png" alt="instagram"/></a>
-			<a href="https://www.instagram.com/isaverlac/"><img src="view/Social/twitter.png" alt="twitter"/></a>
+			<a href="https://www.facebook.com/"><img src="view/Social/facebook.png" alt="facebook"/></a>
+			<a href="https://twitter.com/"><img src="view/Social/instagram.png" alt="instagram"/></a>
+			<a href="https://www.instagram.com/"><img src="view/Social/twitter.png" alt="twitter"/></a>
 			<a href="https://city0fglass.tumblr.com"><img src="view/Social/tumblr.png" alt="tumblr"/></a>
 
 			</div>

@@ -104,7 +104,7 @@ class Controller {
 			$status[$i] = $result[$i][5];
 		}
 	
-		require 'view/acompanharPedido.html';
+		require 'view/acompanharPedido.php';
 	}
 
 	public function index()	{
