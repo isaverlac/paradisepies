@@ -1,5 +1,18 @@
 <?php
+/*
+ *
+ * Classe controladora de todos os acessos e operações do site.
+ *
+ * @author Flávio Augusto Müller Shinzato
+ * @author Luiz Henrique Cavalcante da Sillva
+ * @author Yan Uehara de Moraes
+ */
 
+/**
+* Declarações de todas as classes e factorys que o controller
+* precisa para funcionar completamente.
+*
+*/
 require_once("model/usuario.php");
 require_once("model/UsuarioFactory.php");
 require_once("model/pedido.php");
@@ -11,6 +24,11 @@ class Controller {
 	private $pedidoFactory;
 	private $tortaFactory;
 
+	/**
+	* Método para instaciar todas as Factorys necessárias
+	* para o controller acessar o banco de dados.
+	*
+	*/
 	public function __construct() 	{
 		$this->usuarioFactory = new UsuarioFactory();
 		$this->pedidoFactory = new PedidoFactory();
@@ -20,6 +38,12 @@ class Controller {
         ini_set('display_errors', 1);
 	}
 
+	/**
+	* Método que inicia o controller, possui opções 
+	* para ligar todas as operações do site as suas
+	* respectivas funções.
+	*
+	*/
 	public function init() 	{
 
 		if (isset($_GET['op'])) {
@@ -87,8 +111,8 @@ class Controller {
 		require 'view/encomende.html';
 	}
 	/*
-		Só tera acesso quando estiver logado no sistema.
-		Verifica no banco de dados quais os Pedidos e mostra na pagina.
+	* Só tera acesso quando estiver logado no sistema.
+	* Verifica no banco de dados quais os Pedidos e mostra na pagina.
 	*/
 	public function acompanharPedido()	{
 		session_start("paradisepies");
@@ -124,7 +148,7 @@ class Controller {
 		require 'view/perfil.html';
 	}
 	/*
-		Pagina do perfil principal após login. 
+		Página do perfil principal após login. 
 	*/
 	public function perfil2() {
 		session_start("paradisepies");
@@ -132,7 +156,9 @@ class Controller {
 
 	}
 
-
+	/*
+	* Método para cadastrar o usuário caso ele não esteja cadastrado no site.
+	*/
 	public function cadastra_usuario() {
 		if (isset($_POST['submit'])) {
 			$nome = $_POST['nome'];
@@ -149,14 +175,14 @@ class Controller {
 
 			try {
 				/*
-					Obriga as informações do formularia serem diferentes de nula.
-					Verificação de formato é feita no proprio HTML.
+				* Obriga as informações do formulário à serem diferentes de null.
+				* Verificação de formato é feita no proprio HTML.
 				*/
 				if ($nome == "" || $cpf == "" || $telefone == "" || $cidade == "" || $cep == "" || $endereco == ""
 					|| $numeroEndereco == "" || $email == "" || $senha == "")
 					throw new Exception('Erro');
 
-				// Cria o objeto usuario.
+				// Cria o objeto usuário.
 				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco,
 									   $complementoEndereco, $email, $senha);
 
@@ -175,7 +201,7 @@ class Controller {
                     $msg = "<p>O usu&aacute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
                 }
 
-                // Limpar variaveis após o uso do formulario.
+                // Limpa as variáveis após o uso do formulário.
                 unset($nome);
                 unset($cpf);
                 unset($telefone);
@@ -215,6 +241,9 @@ class Controller {
 		}
 	}
 
+	/*
+	* Método para garantir que o usuário consiga fazer login no site.
+	*/
 	public function login_usuario() {
 		if (isset($_POST['submit'])) {
 			$email = $_POST['email'];
@@ -222,7 +251,10 @@ class Controller {
 			$result = false;
 			$sucesso = false;
 			try {
-				//Campo e-mail e senha, não podem ser vazios
+				/*
+				* Obriga as informações do formulário à serem diferentes de null.
+				* Verificação de formato é feita no proprio HTML.
+				*/
 				if($email == "" || $senha == "" )
 					throw new Exception('Erro');
 
@@ -243,6 +275,10 @@ class Controller {
 					$this->perfil();
 				}
 
+				// Limpa as variáveis após o uso do formulário.
+				unset($email);
+				unset($senha);
+
 			} catch (Exception $e) {
 				if ($email == "") {
                     $msg = "O campo <strong>E-mail</strong> deve ser preenchido!";
@@ -254,10 +290,17 @@ class Controller {
 		}
 	}
 
+	/*
+	* Método utilizado quando o usuário decidir alterar seu endereço cadastrado.
+	*/
 	public function alterar_endereco() {
 		session_start("paradisepies");
 
 		if (isset($_POST['submit'])) {
+			/*
+			* Obriga as informações do formulário à serem diferentes de null.
+			* Verificação de formato é feita no proprio HTML.
+			*/
 			$cidade = $_POST['city'];
 			$cep = $_POST['cep'];
 			$endereco = $_POST['end'];
@@ -281,6 +324,7 @@ class Controller {
 					require'view/mensagem.php';
 				}
 
+				// Limpa as variáveis após o uso do formulário.
 				unset($cidade);
                	unset($cep);
                	unset($endereco);
@@ -302,10 +346,17 @@ class Controller {
 		}
 	}
 
+	/*
+	* Método utilizado quando o usuário decidir alterar seu e-mail cadastrado.
+	*/
 	public function alterar_email() {
 		session_start("paradisepies");
 
 		if(isset($_POST['submit'])) {
+			/*
+			* Obriga as informações do formulário à serem diferentes de null.
+			* Verificação de formato é feita no proprio HTML.
+			*/
 			$email = $_POST['email'];
 			$result = false;
 
@@ -326,8 +377,8 @@ class Controller {
 					require'view/mensagem.php';
 				}
 
+				// Limpa as variáveis após o uso do formulário.
 				unset($email);
-        		unset($senha);
 
 			} catch (Exception $e) {
 				if ($email == "") {
@@ -338,11 +389,17 @@ class Controller {
 		}
 	}
 
+	/*
+	* Método utilizado quando o usuário decidir alterar sua senha cadastrada.
+	*/	
 	public function alterar_senha() {
 		session_start("paradisepies");
 
 		if(isset($_POST['submit'])) {
-
+			/*
+			* Obriga as informações do formulário à serem diferentes de null.
+			* Verificação de formato é feita no proprio HTML.
+			*/
 			$senha = $_POST['senha'];
 			$result = false;
 
@@ -362,8 +419,8 @@ class Controller {
 					require'view/mensagem.php';
 				}
 
-				unset($email);
-        unset($senha);
+				// Limpa as variáveis após o uso do formulário.
+        		unset($senha);
 
 			} catch (Exception $e) {
 				if ($senha == "") {
@@ -373,11 +430,17 @@ class Controller {
 			}
 		}
 	}
-
+	/*
+	* Método para quando o usuário do site for fazer um pedido.
+	*/
 	public function fazer_pedido() {
 		session_start("paradisepies");
 
 		if (isset($_POST['submit'])) {
+			/*
+			* Obriga as informações do formulário à serem diferentes de null.
+			* Verificação de formato é feita no proprio HTML.
+			*/
 			$idTorta = $_POST['torta'];
 			$quantidade = $_POST['quantidade'];
 			$entrega = $_POST['entrega'];
@@ -387,23 +450,29 @@ class Controller {
 				if($idTorta == "")
 					throw new Exception('Erro');
 
-					// Cria um novo pedido, para o usuario da sessão
-					$pedido = new Pedido($_SESSION["id_usuario"]);
-					// Busca no banco de dados a torta que ele selecionou e insere na variavel torta
-					$torta = $this->tortaFactory->buscar($idTorta);
-					// Adiciona a torta ao pedido, junto com a quantidade do mesmo.
-					$pedido->addTorta($torta[0], $quantidade);
-					// Envia ao banco de Dados o pedido, e retorna true, caso tenha sucesso.
-					$sucesso = $this->pedidoFactory->salvar($pedido);
+				// Cria um novo pedido, para o usuario da sessão
+				$pedido = new Pedido($_SESSION["id_usuario"]);
+				// Busca no banco de dados a torta que ele selecionou e insere na variavel torta
+				$torta = $this->tortaFactory->buscar($idTorta);
+				// Adiciona a torta ao pedido, junto com a quantidade do mesmo.
+				$pedido->addTorta($torta[0], $quantidade);
+				// Envia ao banco de Dados o pedido, e retorna true, caso tenha sucesso.
+				$sucesso = $this->pedidoFactory->salvar($pedido);
 
-					if(!$sucesso) {
-						$msg = "Não foi possível salvar seu pedido";
-						require'view/mensagem.php';
-					}
-					else {
-						$msg = "Pedido gravado com sucesso!";
-						require'view/mensagem.php';
-					}
+				if(!$sucesso) {
+					$msg = "Não foi possível salvar seu pedido";
+					require'view/mensagem.php';
+				}
+				else {
+					$msg = "Pedido gravado com sucesso!";
+					require'view/mensagem.php';
+				}
+
+				// Limpa as variáveis após o uso do formulário.
+				unset($idTorta);
+        		unset($quantidade);
+        		unset($entrega);
+        		unset($sucesso);
 
 			} catch (Exception $e) {
 				if ($torta == "" ) {
