@@ -146,7 +146,7 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	      if($sucesso)
 		echo $msg;
 	      else
-		echo 'ERRO'.$msg;
+		echo $msg;
 	   ?>
 
 	</div>

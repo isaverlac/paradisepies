@@ -75,7 +75,6 @@ public function __construct() {
             $ref = new ReflectionClass($nameObject);
             $list[] = $ref->newInstanceArgs($row);
         }
-        var_dump($ref);
         return $list;
     }
 

@@ -220,6 +220,7 @@ class Controller {
 			$email = $_POST['email'];
 			$senha = $_POST['senha'];
 			$result = false;
+			$sucesso = false;
 			try {
 				//Campo e-mail e senha, não podem ser vazios
 				if($email == "" || $senha == "" )
@@ -238,7 +239,7 @@ class Controller {
 					session_start("paradisepies");
 					// Caso o login tenha feito com sucesso, inicia a sessão com o usuario.
 					$_SESSION["id_usuario"]=$result[0]->getCpf();
-
+					$sucesso = true;
 					$this->perfil();
 				}
 
