@@ -137,8 +137,8 @@ $('a.close, #fade').live('click', function() { //When clicking on the close or f
 <!-- blocos de conteúdo -->
 <div class="caixas">
 
-	<!-- caixa de conteúdo individual -->
-	<div class="caixas">
+	<!-- caixa de conteúdo individual --> 
+	<div class="caixa">
 		
 			<h1>Acompanhe seus Pedidos!</h1>			
 			<table> 

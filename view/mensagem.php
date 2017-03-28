@@ -138,8 +138,8 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 <!-- blocos de conteúdo -->
 <div class="caixas">
 
-	<!-- caixa de conteúdo individual -->
-	<div class="caixas">
+	<!-- caixa de conteúdo individual --> 
+	<div class="caixa">
 		
 		<!-- mensagens de erro/sucesso mostradas ao usuário, vindas do controller -->
 		<?php
