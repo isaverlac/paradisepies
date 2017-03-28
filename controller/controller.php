@@ -69,10 +69,6 @@ class Controller {
 				$this->fazer_pedido();
 				break;
 
-			case 'finalizar_pedido':
-				$this->finalizar_pedido();
-				break;
-
 			case 'acompanharPedido':
 				$this->acompanharPedido();
 				break;
@@ -90,10 +86,15 @@ class Controller {
 	public function encomende()	{
 		require 'view/encomende.html';
 	}
-
+	/*
+		Só tera acesso quando estiver logado no sistema.
+		Verifica no banco de dados quais os Pedidos e mostra na pagina.
+	*/
 	public function acompanharPedido()	{
 		session_start("paradisepies");
+		// Retorna uma Matriz, de String, com informações de Pedidos x Informações.
 		$result = $this->pedidoFactory->buscar($_SESSION["id_usuario"]);
+		
 		$nPedidos = count($result);
 		for($i=0; $i<$nPedidos; $i++)
 		{
@@ -122,11 +123,15 @@ class Controller {
 	public function perfil() {
 		require 'view/perfil.html';
 	}
+	/*
+		Pagina do perfil principal após login. 
+	*/
 	public function perfil2() {
 		session_start("paradisepies");
 		require 'view/perfil.html';
 
 	}
+
 
 	public function cadastra_usuario() {
 		if (isset($_POST['submit'])) {
@@ -143,10 +148,15 @@ class Controller {
 			$sucesso = false;
 
 			try {
+				/*
+					Obriga as informações do formularia serem diferentes de nula.
+					Verificação de formato é feita no proprio HTML.
+				*/
 				if ($nome == "" || $cpf == "" || $telefone == "" || $cidade == "" || $cep == "" || $endereco == ""
 					|| $numeroEndereco == "" || $email == "" || $senha == "")
 					throw new Exception('Erro');
 
+				// Cria o objeto usuario.
 				$usuario = new usuario($nome, $cpf, $telefone, $cidade, $cep, $endereco, $numeroEndereco,
 									   $complementoEndereco, $email, $senha);
 
@@ -165,6 +175,7 @@ class Controller {
                     $msg = "<p>O usu&aacute;rio n&atilde;o foi adicionado. Tente novamente mais tarde!</p>";
                 }
 
+                // Limpar variaveis após o uso do formulario.
                 unset($nome);
                 unset($cpf);
                 unset($telefone);
@@ -210,9 +221,14 @@ class Controller {
 			$senha = $_POST['senha'];
 			$result = false;
 			try {
+				//Campo e-mail e senha, não podem ser vazios
 				if($email == "" || $senha == "" )
 					throw new Exception('Erro');
 
+				/*
+					Executa a função login, que recebe e-mail e a senha,
+					e retorna o usuario, caso o e-mail e senha estejam corretos.
+				*/
 				$result = $this->usuarioFactory->login($email, $senha);
 
 				if($result == null) {
@@ -220,6 +236,7 @@ class Controller {
 					require'view/mensagem.php';
 				} else {
 					session_start("paradisepies");
+					// Caso o login tenha feito com sucesso, inicia a sessão com o usuario.
 					$_SESSION["id_usuario"]=$result[0]->getCpf();
 
 					$this->perfil();
@@ -248,9 +265,10 @@ class Controller {
 			$result = false;
 
 			try {
+				// Caso algum dos campos do alterar endereço esteja vazio, erro
 				if ($cep == "" || $endereco == "" || $numeroEndereco == "")
 					throw new Exception('Erro');
-
+				// Executa Função alterar endereço, no usuario, passando o usuario a ser alterado e os atributos novos.
 				$sucesso = $this->usuarioFactory->alterar_endereco($_SESSION["id_usuario"], $cep, $endereco, $numeroEndereco, $complementoEndereco);
 
 				if(!$sucesso) {
@@ -267,6 +285,7 @@ class Controller {
                	unset($endereco);
                	unset($numeroEndereco);
                	unset($complementoEndereco);
+
 			} catch (Exception $e) {
 				if ($cep == "") {
                     $msg = "O campo <strong>Cep</strong> deve ser preenchido!";
@@ -290,9 +309,11 @@ class Controller {
 			$result = false;
 
 			try {
+				// Caso o e-mail esteja vazio, error.
 				if($email == "" )
 					throw new Exception('Erro');
 
+				//Executa a função alterar_email do usuario, passando o usuario e o e-mail novo.
 				$sucesso = $this->usuarioFactory->alterar_email($_SESSION["id_usuario"], $email);
 
 				if(!$sucesso) {
@@ -305,7 +326,7 @@ class Controller {
 				}
 
 				unset($email);
-        unset($senha);
+        		unset($senha);
 
 			} catch (Exception $e) {
 				if ($email == "") {
@@ -325,9 +346,10 @@ class Controller {
 			$result = false;
 
 			try {
+				// Caso a senha esteja vazio, error.
 				if($senha == "" )
 					throw new Exception('Erro');
-
+				//Executa a função alterar_senha do usuario, passando o usuario e a senha nova.
 				$sucesso = $this->usuarioFactory->alterar_senha($_SESSION["id_usuario"], $senha);
 
 				if(!$sucesso) {
@@ -364,10 +386,13 @@ class Controller {
 				if($idTorta == "")
 					throw new Exception('Erro');
 
+					// Cria um novo pedido, para o usuario da sessão
 					$pedido = new Pedido($_SESSION["id_usuario"]);
+					// Busca no banco de dados a torta que ele selecionou e insere na variavel torta
 					$torta = $this->tortaFactory->buscar($idTorta);
+					// Adiciona a torta ao pedido, junto com a quantidade do mesmo.
 					$pedido->addTorta($torta[0], $quantidade);
-
+					// Envia ao banco de Dados o pedido, e retorna true, caso tenha sucesso.
 					$sucesso = $this->pedidoFactory->salvar($pedido);
 
 					if(!$sucesso) {
@@ -387,13 +412,5 @@ class Controller {
 			}
 		}
 	}
-
-	public function finalizar_pedido() {
-
-
-
-	}
-
-
 }
 ?>
