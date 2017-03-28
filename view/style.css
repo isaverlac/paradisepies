@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Arquivo .css do projeto Paradise Pies, de uso exclusivo.
  * Não serão permitidas cópias.
  * @author Isabela Andrade Souza
@@ -447,7 +447,6 @@ footer h2 {
 	width:100px;
 	height:100px;
 	float:left;
-	border-radius:100%;
 	vertical-align:middle;
 }
 
